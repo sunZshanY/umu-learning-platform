@@ -388,9 +388,8 @@ API Key仅存储在用户浏览器本地（localStorage），不会发送到我�
 
 ---
 
-这是我的新人开发作品喵~
-
----
 <div align="center">
+  <p> 这是我的新人开发作品喵~ </p>
+  
   <sub>Made with ❤️ for learning | MIT License</sub>
 </div>
