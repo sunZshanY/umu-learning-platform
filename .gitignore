@@ -30,8 +30,16 @@ Desktop.ini
 
 # Sensitive config
 .env
+.env.*
+!.env.example
 .env.local
 config.local.py
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+service-account*.json
 
 # Node (if any)
 node_modules/

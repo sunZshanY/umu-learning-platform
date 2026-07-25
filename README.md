@@ -223,13 +223,13 @@ curl -X POST http://localhost:8000/api/answer \
 
 ```bash
 # Windows PowerShell
-$env:UMU_AI_API_KEY="sk-your-key-here"
+$env:UMU_AI_API_KEY="your-api-key-here"
 $env:UMU_AI_BASE_URL="https://api.openai.com/v1"
 $env:UMU_AI_MODEL="gpt-4o"
 python backend/server.py
 
 # Linux/macOS
-export UMU_AI_API_KEY="sk-your-key-here"
+export UMU_AI_API_KEY="your-api-key-here"
 export UMU_AI_BASE_URL="https://api.openai.com/v1"
 python backend/server.py
 ```
