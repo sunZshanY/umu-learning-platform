@@ -125,10 +125,11 @@ cd backend && python server.py
 
 ### 4. 打开页面
 
-- **个人版**: http://localhost:8000
+- **个人版**: http://localhost:8000  
 - **公开版**: http://localhost:8000/public
 - **API文档**: http://localhost:8000/api/docs
-
+**注意:localhost:8000是本地的喵~，嗯对.....**
+  
 ---
 
 ## 📖 使用指南
@@ -353,7 +354,7 @@ API Key仅存储在用户浏览器本地（localStorage），不会发送到我�
 <details>
 <summary><strong>Q: 支持哪些AI平台？</strong></summary>
 
-支持所有兼容OpenAI API格式的平台：DeepSeek、OpenAI、Azure OpenAI、Moonshot、智谱、百川等。
+支持所有兼容OpenAI API格式的平台：DeepSeek、OpenAI、Kimi、Azure OpenAI、Moonshot、智谱、百川等.....
 </details>
 
 <details>
