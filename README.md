@@ -388,9 +388,9 @@ API Key仅存储在用户浏览器本地（localStorage），不会发送到我�
 
 ---
 
-<p align="center">最后就是这个项目~~要是有大佬闲着无聊的话可以来看下~~，以及帮我看下有什么不对之处修改，可投pr喵!~❤️</p>
+<p align="center">最后就是这个项目要是有大佬闲着无聊的话可以来看下，以及帮我看下有什么不对之处修改，可投pr喵!~❤️</p>
 <div align="center">
-  <p> <b> 这是我的新人开发作品喵❤️~ </b></p>
+  <p> <b> 新人开发请多多关照喵❤️~ </b></p>
   
   <sub>Made with ❤️ for learning | MIT License</sub>
 </div>
