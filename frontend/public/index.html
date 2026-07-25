@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="theme-color" content="#7C3AED">
+    <title>UMU刷题助手 - 公开版</title>
+    <style>
+        :root {
+            --bg: #F8FAFC; --card: #FFF; --text: #1E293B;
+            --text2: #64748B; --border: #E2E8F0; --pri: #7C3AED;
+            --pri-light: #8B5CF6; --success: #10B981; --danger: #EF4444;
+            --warning: #F59E0B; --radius: 10px;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root { --bg: #0F172A; --card: #1E293B; --text: #F1F5F9; --text2: #94A3B8; --border: #334155; }
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans SC",sans-serif;
+            background:var(--bg);color:var(--text);min-height:100vh;
+            -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
+        }
+        .header{
+            background:linear-gradient(135deg,var(--pri),#5B21B6);color:#fff;
+            padding:14px 20px;position:sticky;top:0;z-index:100;
+            display:flex;align-items:center;justify-content:space-between;
+        }
+        .header h1{font-size:17px;font-weight:700}
+        .header .dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}
+        .dot.on{background:#10B981;box-shadow:0 0 6px #10B981}
+        .dot.off{background:#EF4444}
+        .header .status{font-size:12px;opacity:.9;cursor:pointer}
+
+        .main{max-width:640px;margin:0 auto;padding:16px}
+
+        /* Stats */
+        .stats{display:flex;gap:8px;margin-bottom:14px}
+        .stat{flex:1;background:var(--card);border-radius:var(--radius);padding:10px;text-align:center;border:1px solid var(--border)}
+        .stat .v{font-size:22px;font-weight:700}
+        .stat .l{font-size:10px;color:var(--text2)}
+        .v.d{color:var(--danger)}.v.w{color:var(--warning)}.v.s{color:var(--success)}
+
+        /* Card */
+        .card{background:var(--card);border-radius:var(--radius);padding:18px;margin-bottom:14px;border:1px solid var(--border)}
+
+        textarea{
+            width:100%;padding:14px;border:2px solid var(--border);border-radius:8px;
+            font-size:16px;font-family:inherit;background:var(--bg);color:var(--text);
+            resize:vertical;min-height:130px;line-height:1.6;
+            -webkit-appearance:none;transition:border-color .2s;
+        }
+        textarea:focus{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
+        textarea::placeholder{color:var(--text2);font-size:14px}
+        select, input[type=text], input[type=password], input[type=url]{
+            width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:8px;
+            font-size:14px;font-family:inherit;background:var(--bg);color:var(--text);
+            -webkit-appearance:none;margin-top:8px;
+        }
+        input:focus,select:focus{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px rgba(124,58,237,.1)}
+        select{
+            background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748B' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat:no-repeat;background-position:right 12px center;padding-right:36px;
+        }
+
+        /* Buttons */
+        .btn{
+            display:flex;align-items:center;justify-content:center;gap:6px;
+            width:100%;padding:14px;border:none;border-radius:8px;
+            font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;
+            transition:all .15s;-webkit-appearance:none;margin-top:12px;
+        }
+        .btn:active{transform:scale(.97)}
+        .btn-go{background:var(--pri);color:#fff}
+        .btn-go:disabled{background:#94A3B8;cursor:not-allowed}
+        .btn-batch{background:#0F172A;color:#fff}
+        .btn-reset{background:transparent;border:2px solid var(--danger);color:var(--danger);font-size:14px;padding:10px}
+        .btn-copy{background:var(--success);color:#fff;font-size:13px;padding:8px 16px;width:auto;margin:0}
+        .btn-sm{font-size:13px;padding:10px;width:auto;flex:1}
+
+        /* Answer */
+        .answer-block{
+            background:#ECFDF5;border:2px solid #6EE7B7;border-radius:var(--radius);
+            padding:16px;margin-top:12px;animation:in .25s ease;position:relative;
+        }
+        @media (prefers-color-scheme: dark){.answer-block{background:#064E3B;border-color:#059669}}
+        .answer-block .q-preview{font-size:12px;color:var(--text2);margin-bottom:8px;line-height:1.4}
+        .answer-block .a-text{
+            font-size:20px;font-weight:700;color:#059669;word-break:break-all;
+            padding:8px 0;line-height:1.5;
+        }
+        .answer-actions{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+        .answer-block .q-num{
+            position:absolute;top:12px;right:12px;
+            font-size:11px;color:var(--text2);background:var(--bg);
+            padding:2px 8px;border-radius:10px;
+        }
+        @keyframes in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+        /* Toast */
+        .toast{
+            position:fixed;bottom:30px;left:50%;transform:translateX(-50%);
+            background:#1E293B;color:#fff;padding:10px 22px;border-radius:20px;
+            font-size:14px;font-weight:600;z-index:200;pointer-events:none;
+            animation:toast 2s ease forwards;
+        }
+        @keyframes toast{0%{opacity:0;transform:translateX(-50%)translateY(10px)}20%{opacity:1;transform:translateX(-50%)translateY(0)}80%{opacity:1}100%{opacity:0}}
+
+        .spinner{
+            display:inline-block;width:18px;height:18px;
+            border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;
+            border-radius:50%;animation:spin .6s linear infinite;
+        }
+        @keyframes spin{to{transform:rotate(360deg)}}
+
+        /* Settings Modal */
+        .modal-overlay{
+            position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:150;
+            display:flex;align-items:flex-end;animation:fadeIn .2s;
+        }
+        @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+        .modal{
+            background:var(--card);border-radius:var(--radius) var(--radius) 0 0;
+            width:100%;max-width:640px;margin:0 auto;padding:24px 20px 32px;
+            max-height:85vh;overflow-y:auto;animation:slideUp .3s;
+        }
+        @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+        .modal h2{font-size:18px;margin-bottom:16px}
+        .modal .close{position:absolute;right:16px;top:16px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--text2)}
+        .provider-hint{font-size:11px;color:var(--text2);margin-top:4px;padding:6px 10px;background:var(--bg);border-radius:6px;line-height:1.5}
+        .provider-hint code{background:var(--border);padding:1px 5px;border-radius:3px;font-size:10px}
+
+        .danger-bar{
+            background:#FEF2F2;border:2px dashed var(--danger);border-radius:var(--radius);
+            padding:14px;text-align:center;display:none;margin-top:14px;
+        }
+        @media (prefers-color-scheme: dark){.danger-bar{background:#450A0A}}
+        .danger-bar.show{display:block}
+
+        .sep-hint{font-size:12px;color:var(--text2);margin-bottom:10px;padding:8px 12px;background:var(--bg);border-radius:6px}
+        .batch-hint{font-size:12px;color:var(--text2);margin-top:6px}
+        .result-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:12px}
+        .result-table th{background:var(--pri);color:#fff;padding:8px 10px;text-align:left;font-size:12px;position:sticky;top:0;z-index:1}
+        .result-table td{padding:7px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+        .result-table tr:hover{background:var(--bg)}
+        .result-table .idx{width:40px;text-align:center;font-weight:600;color:var(--text2)}
+        .result-table .ans{font-weight:700;word-break:break-all}
+        .result-table .qprev{font-size:11px;color:var(--text2);max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        .result-table .act button{font-size:11px;padding:4px 8px;border-radius:4px}
+        .result-table .fail td{background:#FEF2F2}
+        .result-summary{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0;padding:12px;background:var(--bg);border-radius:8px}
+        .result-summary strong{font-size:15px}
+        .result-scroll{max-height:70vh;overflow-y:auto;border:1px solid var(--border);border-radius:8px}
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>UMU刷题助手</h1>
+    <span class="status" id="stBadge" onclick="openSettings()">
+        <span class="dot off" id="dot"></span><span id="st">未配置</span>
+    </span>
+</div>
+
+<div class="main">
+    <!-- Stats -->
+    <div class="stats">
+        <div class="stat"><div class="v" id="cnt">0</div><div class="l">已答</div></div>
+        <div class="stat"><div class="v s" id="rem">3</div><div class="l">剩余机会</div></div>
+        <div class="stat"><div class="v" id="spd">0ms</div><div class="l">平均耗时</div></div>
+    </div>
+
+    <!-- Single Question -->
+    <div class="card">
+        <textarea id="q" placeholder="在此粘贴题目内容，点击按钮获取答案...&#10;&#10;支持 Ctrl+Enter 快捷提交"></textarea>
+        <select id="qt">
+            <option value="unknown">自动判断题型</option>
+            <option value="single_choice">单选题</option>
+            <option value="multi_choice">多选题</option>
+            <option value="true_false">判断题</option>
+            <option value="fill_blank">填空题</option>
+            <option value="short_answer">简答题</option>
+        </select>
+        <button class="btn btn-go" id="btnGo" onclick="go()">获取答案</button>
+        <div id="ans"></div>
+    </div>
+
+    <!-- Batch Mode -->
+    <div class="card">
+        <div class="sep-hint">
+            <strong>批量模式</strong> — 直接粘贴多道题目，自动识别题目边界，单次最多300题
+            <br><span style="font-size:11px;color:var(--text2)">支持：空行分隔 | 数字编号(1. 2. 3.) | 题号标记(第1题)</span>
+        </div>
+        <textarea id="bq" placeholder="直接粘贴多道题目，自动识别分隔...&#10;&#10;题目1&#10;A. 选项A  B. 选项B&#10;&#10;题目2&#10;&#10;第3题&#10;4. 题目4的内容" rows="8"></textarea>
+        <button class="btn btn-batch" id="btnBatch" onclick="batch()">批量获取答案</button>
+        <div id="ba"></div>
+    </div>
+
+    <!-- Danger -->
+    <div class="danger-bar" id="dz">
+        <strong style="color:var(--danger)">错误次数已达上限</strong>
+        <p style="font-size:13px;color:var(--text2);margin-top:4px">UMU将在3次错误后返回大厅</p>
+        <button class="btn btn-reset" onclick="reset()" style="margin-top:8px">重新开始</button>
+    </div>
+</div>
+
+<!-- Settings Modal -->
+<div class="modal-overlay" id="settingsModal" style="display:none" onclick="e=>{if(e.target===this)closeSettings()}">
+    <div class="modal">
+        <button class="close" onclick="closeSettings()">&times;</button>
+        <h2>API 配置</h2>
+        <div style="margin-bottom:14px">
+            <label style="font-size:13px;font-weight:600;color:var(--text2);display:block;margin-bottom:6px">API Key *</label>
+            <input type="password" id="apiKey" placeholder="sk-xxxxxxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+            <div class="provider-hint">
+                <strong>获取API Key:</strong><br>
+                DeepSeek(推荐): <code>platform.deepseek.com</code> → API Keys<br>
+                OpenAI: <code>platform.openai.com</code> → API Keys
+            </div>
+        </div>
+        <div style="margin-bottom:14px">
+            <label style="font-size:13px;font-weight:600;color:var(--text2);display:block;margin-bottom:6px">API Base URL</label>
+            <input type="url" id="apiBase" placeholder="https://api.deepseek.com/v1">
+            <div class="provider-hint">常用: DeepSeek=<code>https://api.deepseek.com/v1</code> | OpenAI=<code>https://api.openai.com/v1</code></div>
+        </div>
+        <div style="margin-bottom:14px">
+            <label style="font-size:13px;font-weight:600;color:var(--text2);display:block;margin-bottom:6px">模型名称</label>
+            <input type="text" id="model" placeholder="deepseek-chat">
+            <div class="provider-hint">常用: <code>deepseek-chat</code> | <code>gpt-4o</code> | <code>gpt-4o-mini</code></div>
+        </div>
+        <div style="display:flex;gap:8px">
+            <button class="btn btn-go" onclick="saveSettings()" style="flex:1">保存配置</button>
+            <button class="btn btn-reset" onclick="testConn()" style="flex:1;border-color:var(--pri);color:var(--pri)">测试连接</button>
+        </div>
+        <div id="settingsMsg" style="margin-top:12px;font-size:13px"></div>
+    </div>
+</div>
+
+<script>
+const MAX_WRONG=3;
+
+// Settings
+function getSettings(){
+    try{return JSON.parse(localStorage.umu_pub||'{}')}catch(e){return{}}
+}
+function setSettings(s){localStorage.umu_pub=JSON.stringify(s)}
+function cfgd(){return !!(getSettings().apiKey||'').trim()}
+
+// State
+const S={
+    wrong:0,total:0,time:0,busy:false,
+    load(){
+        try{const d=JSON.parse(localStorage.umu_ps||'{}');this.wrong=d.w||0;this.total=d.t||0;this.time=d.m||0;this.ui()}catch(e){}
+    },
+    save(){localStorage.umu_ps=JSON.stringify({w:this.wrong,t:this.total,m:this.time})},
+    ui(){
+        document.getElementById('cnt').textContent=this.total;
+        const r=Math.max(0,MAX_WRONG-this.wrong);
+        const re=document.getElementById('rem');re.textContent=r;
+        re.className='v '+(r===0?'d':r===1?'w':'s');
+        document.getElementById('spd').textContent=(this.total>0?Math.round(this.time/this.total):0)+'ms';
+        document.getElementById('dz').className='danger-bar'+(r<=0?' show':'');
+        document.getElementById('btnGo').disabled=r<=0;
+        document.getElementById('btnBatch').disabled=r<=0;
+        this.save();
+    },
+    reset(){this.wrong=0;this.total=0;this.time=0;this.ui();document.getElementById('ans').innerHTML='';document.getElementById('ba').innerHTML='';t('会话已重置')}
+};
+S.load();
+
+// Helpers
+function $(id){return document.getElementById(id)}
+function E(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+function t(m){const e=document.createElement('div');e.className='toast';e.textContent=m;document.body.appendChild(e);setTimeout(()=>e.remove(),2100)}
+function ld(btn,on){
+    if(on){btn.disabled=true;btn._t=btn.innerHTML;btn.innerHTML='<span class="spinner"></span> AI思考中...'}
+    else{btn.disabled=false;btn.innerHTML=btn._t||btn.innerHTML}
+}
+function clean(tx){return tx.replace(/\*\*(.+?)\*\*/g,'$1').replace(/\*(.+?)\*/g,'$1').replace(/__(.+?)__/g,'$1').replace(/_(.+?)_/g,'$1').replace(/`(.+?)`/g,'$1').replace(/^#{1,6}\s+/gm,'').replace(/^(答案|解析|置信度)[：:]\s*/gm,'').trim()}
+
+// Settings UI
+function openSettings(){
+    const s=getSettings();
+    $('apiKey').value=s.apiKey||'';$('apiBase').value=s.apiBase||'https://api.deepseek.com/v1';
+    $('model').value=s.model||'deepseek-chat';$('settingsModal').style.display='flex';$('settingsMsg').innerHTML='';
+}
+function closeSettings(){
+    $('settingsModal').style.display='none';
+    updateStatus();
+}
+function updateStatus(){
+    const dot=$('dot'),st=$('st');
+    if(cfgd()){dot.className='dot on';st.textContent='已配置'}
+    else{dot.className='dot off';st.textContent='未配置'}
+}
+async function saveSettings(){
+    const k=$('apiKey').value.trim(),b=$('apiBase').value.trim()||'https://api.deepseek.com/v1';
+    const m=$('model').value.trim()||'deepseek-chat';
+    if(!k){$('settingsMsg').innerHTML='<span style="color:var(--danger)">API Key不能为空</span>';return}
+    setSettings({apiKey:k,apiBase:b,model:m});
+    $('settingsMsg').innerHTML='<span style="color:var(--success)">已保存（仅存浏览器本地）</span>';
+    updateStatus();setTimeout(closeSettings,600);
+}
+async function testConn(){
+    const k=$('apiKey').value.trim(),b=$('apiBase').value.trim()||'https://api.deepseek.com/v1';
+    const m=$('model').value.trim()||'deepseek-chat',msg=$('settingsMsg');
+    if(!k){msg.innerHTML='<span style="color:var(--danger)">请先填入API Key</span>';return}
+    msg.innerHTML='<span style="color:var(--warning)">测试中...</span>';
+    try{
+        const r=await fetch(b+'/chat/completions',{
+            method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+k},
+            body:JSON.stringify({model:m,messages:[{role:'user',content:'回复OK'}],max_tokens:10}),
+            signal:AbortSignal.timeout(10000)
+        });
+        if(r.ok)msg.innerHTML='<span style="color:var(--success)">连接成功! 模型:'+m+'</span>';
+        else{const e=await r.json().catch(()=>({}));msg.innerHTML='<span style="color:var(--danger)">连接失败('+r.status+'): '+(e.error?.message||'未知')+'</span>'}
+    }catch(e){msg.innerHTML='<span style="color:var(--danger)">连接异常: '+E(e.message)+'</span>'}
+}
+updateStatus();
+
+// Core AI call - direct API
+async function callAI(question,type,timeout){
+    const s=getSettings();
+    if(!s.apiKey)throw new Error('请先配置API Key（点击右上角）');
+    const resp=await fetch(s.apiBase+'/chat/completions',{
+        method:'POST',headers:{'Content-Type':'application/json','Authorization':'Bearer '+s.apiKey},
+        body:JSON.stringify({
+            model:s.model||'deepseek-chat',
+            messages:[
+                {role:'system',content:'你是追求100%正确率的专业答题专家。先在脑中严谨推理，确认无误后只输出最终答案。\n\n核心原则：\n1. 绝对准确第一，速度第二\n2. 逐字审题，警惕陷阱（绝对化表述、双重否定、偷换概念）\n3. 理工科题目用公式/定理验证，文科题目以权威教材为准\n4. 不确定时优先选最常见的标准答案\n\n输出规范：\n- 单选题：选项字母+内容，如"B. 北京"\n- 多选题：选项字母+内容，如"ABD. 光合作用、呼吸作用、蒸腾作用"\n- 判断题：仅"正确"或"错误"\n- 填空题：仅答案内容，不超过30字\n- 简答题：仅核心答案，不超过50字\n\n严禁：\n- 禁止任何Markdown标记\n- 禁止输出推理过程、解析步骤\n- 禁止"答案:"等前缀标签\n- 禁止括号注释\n- 禁止多行输出（多选除外）'},
+                {role:'user',content:question}
+            ],
+            temperature:0.1,max_tokens:512
+        }),
+        signal:AbortSignal.timeout(timeout||25000)
+    });
+    if(!resp.ok){
+        const e=await resp.json().catch(()=>({}));
+        if(resp.status===401)throw new Error('API Key无效');
+        if(resp.status===429)throw new Error('请求过于频繁');
+        throw new Error(e.error?.message||'HTTP '+resp.status);
+    }
+    const d=await resp.json();
+    return {answer:clean(d.choices[0].message.content||''),explanation:'',confidence:0.88,retry:0};
+}
+
+// Single answer
+async function go(){
+    if(S.busy)return;
+    if(!cfgd()){openSettings();return}
+    const q=$('q').value.trim();
+    if(!q){t('请粘贴题目内容');$('q').focus();return}
+    if(S.wrong>=MAX_WRONG){t('错误次数已达上限');return}
+
+    S.busy=true;const btn=$('btnGo');ld(btn,true);
+    const start=performance.now();
+    try{
+        const r=await callAI(q,$('qt').value,25000);
+        const ms=performance.now()-start;
+        S.total++;S.time+=ms;S.ui();
+        $('ans').innerHTML=`
+            <div class="answer-block">
+                <div class="q-num">${Math.round(ms)}ms | 置信度${(r.confidence*100)|0}%</div>
+                <div class="q-preview">${E(q.substring(0,80))}${q.length>80?'...':''}</div>
+                <div class="a-text">${E(r.answer)}</div>
+                ${r.explanation?`<div style="font-size:13px;color:var(--text2);margin-top:4px">${E(r.explanation)}</div>`:''}
+                <div class="answer-actions">
+                    <button class="btn btn-copy" onclick="cp(this,'${E(r.answer).replace(/'/g,"\\'")}')">复制答案</button>
+                    <button class="btn btn-copy" style="background:var(--success)" onclick="S.total>0&&(S.wrong=Math.max(0,S.wrong-1));S.ui();t('已标记正确')">正确</button>
+                    <button class="btn btn-copy" style="background:var(--danger)" onclick="S.wrong++;S.ui();S.wrong>=MAX_WRONG?t('已达上限！'):t('错误+1')">错误</button>
+                </div>
+            </div>`;
+        t('完成 '+Math.round(ms)+'ms');
+    }catch(e){$('ans').innerHTML=`<div style="color:var(--danger);padding:12px;background:#FEF2F2;border-radius:8px;margin-top:12px">${E(e.message)}<br><button class="btn btn-reset" onclick="go()" style="margin-top:8px">重试</button></div>`}
+    finally{S.busy=false;ld(btn,false)}
+}
+
+// Auto-split questions by blank lines or numbering
+function splitQuestions(raw){
+    const byBlank = raw.split(/\n\s*\n/).map(s=>s.trim()).filter(s=>s);
+    if(byBlank.length > 1) return byBlank;
+    const byNum = raw.split(/\n(?=\s*(?:\d+[\.\、\)\)]\s*|第\d+题|Q\d+[\.\s]|[（(]\d+[）)]))/);
+    const result = byNum.map(s=>s.trim()).filter(s=>s);
+    if(result.length > 1) return result;
+    return raw.split('\n').map(s=>s.trim()).filter(s=>s);
+}
+
+// ── 批量并发引擎（公开版：Promise池直连AI）──────────────
+let _stopFlag=false, _allResults=[], _okCount=0, _failCount=0;
+
+function buildResultRow(r){
+    if(r.ok){
+        return `<tr><td class="idx">${r.idx}</td><td class="ans">${E(r.answer)}</td><td class="qprev" title="${E(r.preview)}">${E(r.preview)}</td><td class="act"><button class="btn btn-copy" onclick="cp(this,'${E(r.answer).replace(/'/g,"\\'")}')">复制</button></td></tr>`;
+    }
+    return `<tr class="fail"><td class="idx">${r.idx}</td><td class="ans" style="color:var(--danger)">失败</td><td class="qprev" title="${E(r.preview)}">${E(r.preview)}</td><td class="act" style="font-size:11px;color:var(--danger)">${E(r.answer.substring(0,40))}</td></tr>`;
+}
+
+function initBatchUI(total){
+    _stopFlag=false; _allResults=[]; _okCount=0; _failCount=0;
+    $('ba').innerHTML=`
+        <div class="result-summary" id="batchSummary">
+            <strong id="batchOk">0</strong>/<span>${total}</span> 成功
+            <span style="color:var(--text2)" id="batchMeta">| 进行中...</span>
+            <button class="btn btn-copy" style="background:var(--danger);margin-left:auto" onclick="_stopFlag=true;this.textContent='已停止';this.disabled=true">停止</button>
+        </div>
+        <div class="result-scroll"><table class="result-table">
+        <thead><tr><th>#</th><th>答案</th><th>题目预览</th><th>操作</th></tr></thead>
+        <tbody id="batchTbody"></tbody>
+        </table></div>`;
+}
+
+function appendBatchRows(rows){
+    const tbody=$('batchTbody');
+    if(tbody) tbody.insertAdjacentHTML('beforeend', rows);
+    const okEl=$('batchOk'); if(okEl) okEl.textContent=_okCount;
+}
+
+function finishBatchUI(total, ms, stopped){
+    const stoppedText=stopped?' (已停止)':'';
+    const allOk=_allResults.filter(r=>r.ok);
+    const answerText=allOk.map(r=>'#'+String(r.idx).padStart(3,'0')+'  '+r.answer).join('\\n');
+    $('batchSummary').innerHTML=`
+        <strong>${_okCount}/${_allResults.length||total} 成功</strong>
+        <span style="color:var(--text2)">| ${Math.round(ms)}ms | ${_failCount}失败${stoppedText}</span>
+        <button class="btn btn-copy" style="margin-left:auto" onclick="cp(this,'${answerText}')">复制全部答案</button>`;
+}
+
+// Batch with Promise pool (8 concurrent)
+async function batch(){
+    if(S.busy)return;
+    if(!cfgd()){openSettings();return}
+    const raw=$('bq').value.trim();
+    if(!raw){t('请粘贴题目');return}
+    const qs=splitQuestions(raw);
+    if(!qs.length){t('未检测到题目');return}
+    if(qs.length>300){t('最多300题，当前'+qs.length+'题');return}
+
+    S.busy=true;const btn=$('btnBatch');
+    btn.innerHTML='<span class="spinner"></span> 准备中...';btn.disabled=true;
+    const start=performance.now();
+    const CONCURRENT=12;
+
+    initBatchUI(qs.length);
+    let pending=qs.map((q,i)=>({q,idx:i}));
+    let active=0;
+
+    const pool=async (item)=>{
+        if(_stopFlag)return;
+        active++;
+        try{
+            const r=await callAI(item.q,'unknown',25000);
+            _okCount++;S.total++;S.time+=(performance.now()-start)/qs.length;
+            const result={idx:item.idx+1,answer:r.answer,preview:item.q.substring(0,80),ok:true};
+            _allResults.push(result);
+            appendBatchRows(buildResultRow(result));
+        }catch(e){
+            _failCount++;
+            const result={idx:item.idx+1,answer:E(e.message),preview:item.q.substring(0,80),ok:false};
+            _allResults.push(result);
+            appendBatchRows(buildResultRow(result));
+        }
+        active--;
+    };
+
+    // Process all with controlled concurrency
+    while(pending.length>0&&!_stopFlag){
+        while(active<CONCURRENT&&pending.length>0&&!_stopFlag){
+            pool(pending.shift());
+        }
+        await new Promise(r=>setTimeout(r,50));
+    }
+    // Wait for remaining
+    while(active>0){await new Promise(r=>setTimeout(r,100));}
+
+    const ms=performance.now()-start;
+    S.ui();
+    finishBatchUI(qs.length, ms, _stopFlag);
+    t(`完成: ${_okCount}/${_allResults.length||qs.length}`);
+    S.busy=false;ld(btn,false);
+}
+
+async function cp(btn,text){
+    const txt=text.replace(/\\n/g,'\n');
+    try{await navigator.clipboard.writeText(txt);t('已复制')}
+    catch(e){const d=document.createElement('textarea');d.value=txt;d.style.cssText='position:fixed;left:-9999px';document.body.appendChild(d);d.select();document.execCommand('copy');document.body.removeChild(d);t('已复制')}
+    btn.textContent='已复制!';setTimeout(()=>btn.textContent=btn.style.marginLeft?'复制全部答案':'复制答案',1500);
+}
+
+document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){e.preventDefault();go()}if(e.key==='Escape')closeSettings()});
+</script>
+</body>
+</html>

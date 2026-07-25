@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0F172A">
+    <title>UMU刷题助手 - 全自动版</title>
+    <style>
+        :root {
+            --bg:#0F172A;--card:#1E293B;--text:#F1F5F9;--text2:#94A3B8;
+            --border:#334155;--pri:#6366F1;--pri2:#818CF8;--ok:#10B981;
+            --err:#EF4444;--warn:#F59E0B;--r:12px;
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC",sans-serif;
+            background:var(--bg);color:var(--text);min-height:100vh;
+            -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
+        }
+
+        /* ── Hero ─────────────────────── */
+        .hero{
+            background:linear-gradient(135deg,#0F172A 0%,#1E1B4B 50%,#312E81 100%);
+            padding:40px 20px 32px;text-align:center;position:relative;overflow:hidden;
+        }
+        .hero::after{
+            content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+            background:radial-gradient(circle at 70% 30%,rgba(99,102,241,.15) 0%,transparent 60%);
+        }
+        .hero>*{position:relative;z-index:1}
+        .hero h1{font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:6px}
+        .hero h1 span{color:var(--pri2)}
+        .hero p{font-size:14px;color:var(--text2);margin-bottom:0}
+        .status-pill{
+            display:inline-flex;align-items:center;gap:6px;margin-top:16px;
+            background:rgba(255,255,255,.08);padding:8px 18px;border-radius:20px;
+            font-size:13px;font-weight:600;
+        }
+        .dot{width:9px;height:9px;border-radius:50%}
+        .dot.g{background:var(--ok);box-shadow:0 0 8px var(--ok)}
+        .dot.r{background:var(--err);animation:pulse 1.5s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+        /* ── Main ────────────────────── */
+        .main{max-width:700px;margin:0 auto;padding:16px 16px 40px}
+
+        /* ── Tabs ────────────────────── */
+        .tabs{display:flex;gap:4px;background:var(--card);border-radius:var(--r);padding:4px;margin-bottom:16px}
+        .tab{
+            flex:1;padding:12px 8px;border:none;border-radius:9px;
+            font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;
+            background:transparent;color:var(--text2);transition:all .15s;
+        }
+        .tab.on{background:var(--pri);color:#fff}
+        .tab:active{transform:scale(.97)}
+
+        /* ── Cards ───────────────────── */
+        .card{background:var(--card);border-radius:var(--r);padding:20px;margin-bottom:14px;border:1px solid var(--border)}
+        .card h3{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+
+        textarea{
+            width:100%;padding:14px;border:2px solid var(--border);border-radius:10px;
+            font-size:16px;font-family:inherit;background:var(--bg);color:var(--text);
+            resize:vertical;min-height:140px;line-height:1.7;-webkit-appearance:none;
+            transition:border-color .2s;
+        }
+        textarea:focus{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px rgba(99,102,241,.15)}
+        textarea::placeholder{color:var(--text2);font-size:14px}
+
+        /* ── Buttons ─────────────────── */
+        .btn{
+            display:flex;align-items:center;justify-content:center;gap:8px;
+            width:100%;padding:15px;border:none;border-radius:10px;
+            font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;
+            transition:all .15s;-webkit-appearance:none;margin-top:12px;
+        }
+        .btn:active{transform:scale(.97)}
+        .btn:disabled{opacity:.5;cursor:not-allowed}
+        .btn-go{background:linear-gradient(135deg,var(--pri),#4F46E5);color:#fff}
+        .btn-batch{background:linear-gradient(135deg,#0F172A,#1E293B);color:#fff;border:2px solid var(--border)}
+        .btn-out{background:transparent;border:2px solid var(--pri);color:var(--pri2)}
+        .btn-copy{background:var(--ok);color:#fff;font-size:13px;padding:8px 16px;width:auto;margin:0}
+        .btn-stop{background:var(--err);color:#fff;font-size:13px;padding:8px 16px;width:auto;margin:0}
+
+        /* ── Results ─────────────────── */
+        .result-table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+        .result-table th{background:var(--pri);color:#fff;padding:8px 12px;text-align:left;font-size:12px;position:sticky;top:0;z-index:1}
+        .result-table td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+        .result-table tr:hover{background:rgba(99,102,241,.08)}
+        .result-table .idx{width:42px;text-align:center;font-weight:700;color:var(--pri2)}
+        .result-table .ans{font-weight:700;word-break:break-all}
+        .result-table .qprev{font-size:12px;color:var(--text2);max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+        .result-table .fail td{background:rgba(239,68,68,.1)}
+        .result-summary{
+            display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+            padding:14px;background:var(--bg);border-radius:10px;margin-bottom:10px;
+        }
+        .result-scroll{max-height:65vh;overflow-y:auto;border:1px solid var(--border);border-radius:10px}
+
+        /* ── Toast ───────────────────── */
+        .toast{
+            position:fixed;bottom:30px;left:50%;transform:translateX(-50%);
+            background:#fff;color:#0F172A;padding:12px 24px;border-radius:24px;
+            font-size:14px;font-weight:700;z-index:999;pointer-events:none;
+            box-shadow:0 8px 30px rgba(0,0,0,.3);
+            animation:toastIn .35s ease,toastOut .35s ease 1.8s forwards;
+        }
+        @keyframes toastIn{from{opacity:0;transform:translateX(-50%)translateY(12px)}to{opacity:1;transform:translateX(-50%)translateY(0)}}
+        @keyframes toastOut{from{opacity:1}to{opacity:0}}
+
+        .spinner{
+            display:inline-block;width:20px;height:20px;
+            border:2.5px solid rgba(255,255,255,.25);border-top-color:#fff;
+            border-radius:50%;animation:spin .55s linear infinite;
+        }
+        @keyframes spin{to{transform:rotate(360deg)}}
+
+        /* ── Steps ──────────────────── */
+        .steps{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+        .step{
+            flex:1;min-width:100px;background:var(--card);border-radius:var(--r);
+            padding:14px;text-align:center;border:1px solid var(--border);
+        }
+        .step .n{
+            width:28px;height:28px;border-radius:50%;background:var(--pri);
+            color:#fff;display:inline-flex;align-items:center;justify-content:center;
+            font-weight:800;font-size:14px;margin-bottom:8px;
+        }
+        .step h4{font-size:13px;margin-bottom:2px}
+        .step p{font-size:11px;color:var(--text2)}
+
+        /* ── Panel (hidden by default) ─ */
+        .panel{display:none}
+        .panel.show{display:block}
+
+        /* ── Quick buttons ──────────── */
+        .quick-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+        .quick{
+            flex:1;min-width:80px;padding:10px;border-radius:8px;
+            border:1px solid var(--border);background:var(--bg);
+            color:var(--text);font-size:12px;font-weight:600;cursor:pointer;
+            font-family:inherit;transition:all .15s;
+        }
+        .quick:hover{background:var(--card);border-color:var(--pri)}
+    </style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+    <h1>🎯 UMU<span>刷题助手</span></h1>
+    <p>粘贴题目 → AI自动答题 → 一键复制答案</p>
+    <div class="status-pill" id="statusPill">
+        <span class="dot r" id="dot"></span>
+        <span id="statusText">检测中...</span>
+    </div>
+</div>
+
+<div class="main">
+    <!-- 新手引导 -->
+    <div class="steps" id="guideSteps">
+        <div class="step"><div class="n">1</div><h4>打开UMU答题</h4><p>手机上打开UMU链接</p></div>
+        <div class="step"><div class="n">2</div><h4>复制题目文本</h4><p>长按题目→全选→复制</p></div>
+        <div class="step"><div class="n">3</div><h4>粘贴到下方</h4><p>点击按钮自动获取答案</p></div>
+        <div class="step"><div class="n">4</div><h4>复制答案</h4><p>点击复制按钮→回UMU作答</p></div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab on" onclick="switchTab('single')">📝 单题刷题</button>
+        <button class="tab" onclick="switchTab('batch')">⚡ 批量刷题</button>
+        <button class="tab" onclick="switchTab('cli')">💻 命令行</button>
+    </div>
+
+    <!-- 单题面板 -->
+    <div class="panel show" id="panelSingle">
+        <div class="card">
+            <h3>📝 粘贴题目，获取答案</h3>
+            <textarea id="qSingle" placeholder="把UMU上的题目复制粘贴到这里...&#10;&#10;支持 Ctrl+Enter 快捷键提交"></textarea>
+            <div class="quick-row">
+                <button class="quick" onclick="$('qSingle').value='';$('qSingle').focus()">🗑 清空</button>
+                <button class="quick" onclick="pasteFromClipboard('qSingle')">📋 粘贴剪贴板</button>
+            </div>
+            <button class="btn btn-go" id="btnSingle" onclick="doSingle()">🚀 获取答案</button>
+            <div id="ansSingle"></div>
+        </div>
+    </div>
+
+    <!-- 批量面板 -->
+    <div class="panel" id="panelBatch">
+        <div class="card">
+            <h3>⚡ 批量刷题（自动识别分隔，最多300题）</h3>
+            <div style="font-size:12px;color:var(--text2);margin-bottom:10px;padding:8px 12px;background:var(--bg);border-radius:8px">
+                💡 <strong>直接粘贴全部题目</strong>，系统自动识别题目边界（空行/数字编号/题号标记均可）
+            </div>
+            <textarea id="qBatch" placeholder="把多道题目一次性粘贴到这里...&#10;&#10;支持自动识别：&#10;· 空行分隔&#10;· 1. 2. 3. 数字编号&#10;· 第1题 第2题 中文编号&#10;&#10;300题大约90秒完成" rows="10"></textarea>
+            <div class="quick-row">
+                <button class="quick" onclick="$('qBatch').value='';$('qBatch').focus()">🗑 清空</button>
+                <button class="quick" onclick="pasteFromClipboard('qBatch')">📋 粘贴剪贴板</button>
+            </div>
+            <button class="btn btn-batch" id="btnBatch" onclick="doBatch()">⚡ 开始自动刷题（并发极速模式）</button>
+            <div id="ansBatch"></div>
+        </div>
+    </div>
+
+    <!-- 命令行面板 -->
+    <div class="panel" id="panelCli">
+        <div class="card">
+            <h3>💻 命令行模式（最快，推荐大量题目）</h3>
+            <div style="font-size:13px;color:var(--text2);line-height:1.8">
+                <p>1. 把题目保存到 <code style="background:var(--bg);padding:2px 6px;border-radius:4px">questions.txt</code></p>
+                <p>2. 运行命令：</p>
+                <div style="background:#0F172A;color:#10B981;padding:12px 16px;border-radius:8px;font-family:monospace;font-size:14px;margin:8px 0">
+                    python backend/auto_quiz.py questions.txt
+                </div>
+                <p>3. 答案自动保存到 <code style="background:var(--bg);padding:2px 6px;border-radius:4px">answers_compact.txt</code></p>
+                <p>4. 并发20题，300题约90秒完成</p>
+            </div>
+            <button class="btn btn-out" onclick="navigator.clipboard.writeText('python backend/auto_quiz.py questions.txt');t('命令已复制')">📋 复制命令</button>
+        </div>
+    </div>
+</div>
+
+<script>
+// ── Config ──────────────────────────────────────────────
+const API=window.location.origin;
+const MAX_WRONG=3;
+
+// ── State ───────────────────────────────────────────────
+const S={
+    wrong:0,total:0,time:0,busy:false,
+    load(){
+        try{const d=JSON.parse(localStorage.umu_auto||'{}');this.wrong=d.w||0;this.total=d.t||0;this.time=d.m||0}catch(e){}
+    },
+    save(){localStorage.umu_auto=JSON.stringify({w:this.wrong,t:this.total,m:this.time})},
+    reset(){this.wrong=0;this.total=0;this.time=0;this.save()}
+};
+S.load();
+
+// ── Helpers ─────────────────────────────────────────────
+function $(id){return document.getElementById(id)}
+function E(s){const d=document.createElement('div');d.textContent=s;return d.innerHTML}
+function t(m){
+    const e=document.createElement('div');e.className='toast';e.textContent=m;
+    document.body.appendChild(e);setTimeout(()=>e.remove(),2200);
+}
+function clean(tx){return tx.replace(/\*\*(.+?)\*\*/g,'$1').replace(/\*(.+?)\*/g,'$1').replace(/__(.+?)__/g,'$1').replace(/_(.+?)_/g,'$1').replace(/`(.+?)`/g,'$1').replace(/^#{1,6}\s+/gm,'').replace(/^(答案|解析|置信度)[：:]\s*/gm,'').trim()}
+function ld(btn,on){
+    if(on){btn.disabled=true;btn._t=btn.innerHTML;btn.innerHTML='<span class="spinner"></span> AI思考中...'}
+    else{btn.disabled=false;btn.innerHTML=btn._t||btn.innerHTML}
+}
+
+// ── Tab switching ────────────────────────────────────────
+function switchTab(name){
+    document.querySelectorAll('.tab').forEach((t,i)=>{
+        const isOn=t.textContent.includes(name==='single'?'单题':name==='batch'?'批量':'命令行');
+        t.className='tab'+(isOn?' on':'');
+    });
+    ['panelSingle','panelBatch','panelCli'].forEach(id=>$(id).classList.remove('show'));
+    $(name==='single'?'panelSingle':name==='batch'?'panelBatch':'panelCli').classList.add('show');
+}
+
+// ── Clipboard ────────────────────────────────────────────
+async function pasteFromClipboard(id){
+    try{
+        const text=await navigator.clipboard.readText();
+        if(text){$(id).value=text;t('已粘贴剪贴板内容')}
+        else t('剪贴板为空')
+    }catch(e){t('无法读取剪贴板，请手动粘贴')}
+}
+async function cp(btn,text){
+    const txt=text.replace(/\\n/g,'\n');
+    try{await navigator.clipboard.writeText(txt)}
+    catch(e){const d=document.createElement('textarea');d.value=txt;d.style.cssText='position:fixed;left:-9999px';document.body.appendChild(d);d.select();document.execCommand('copy');document.body.removeChild(d)}
+    btn.textContent='已复制!';t('✅ 答案已复制到剪贴板');
+    setTimeout(()=>{btn.textContent=btn.textContent.includes('全部')?'复制全部答案':'复制';},1500);
+}
+
+// ── Health check ─────────────────────────────────────────
+async function checkHealth(){
+    try{
+        const r=await fetch(API+'/api/health',{signal:AbortSignal.timeout(4000)});
+        const d=await r.json();
+        $('dot').className='dot '+(d.api_connected?'g':'r');
+        $('statusText').textContent=d.api_connected?'AI就绪 · 可以刷题':'AI离线 · 请检查';
+    }catch(e){
+        $('dot').className='dot r';
+        $('statusText').textContent='服务离线 · 请启动服务';
+    }
+}
+checkHealth();setInterval(checkHealth,20000);
+
+// ── AI Call ──────────────────────────────────────────────
+async function callAI(question,timeout){
+    const r=await fetch(API+'/api/answer',{
+        method:'POST',headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({question,question_type:'unknown'}),
+        signal:AbortSignal.timeout(timeout||25000)
+    });
+    if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e.error||'服务器错误')}
+    const d=await r.json();
+    if(!d.success)throw new Error(d.error||'AI未生成答案');
+    return {answer:clean(d.answer),confidence:d.confidence};
+}
+
+// ── Single ───────────────────────────────────────────────
+async function doSingle(){
+    if(S.busy)return;
+    const q=$('qSingle').value.trim();
+    if(!q){t('请粘贴题目内容');$('qSingle').focus();return}
+
+    S.busy=true;const btn=$('btnSingle');ld(btn,true);
+    const start=performance.now();
+    try{
+        const r=await callAI(q,25000);
+        const ms=performance.now()-start;
+        S.total++;S.time+=ms;S.save();
+        $('ansSingle').innerHTML=`
+            <div style="background:rgba(16,185,129,.1);border:2px solid var(--ok);border-radius:12px;padding:16px;margin-top:12px;animation:toastIn .3s ease">
+                <div style="font-size:22px;font-weight:800;color:var(--ok);margin-bottom:4px">${E(r.answer)}</div>
+                <div style="font-size:12px;color:var(--text2);display:flex;justify-content:space-between;align-items:center">
+                    <span>⏱ ${Math.round(ms)}ms | 🎯 置信度${(r.confidence*100)|0}%</span>
+                    <button class="btn btn-copy" onclick="cp(this,'${E(r.answer).replace(/'/g,"\\'")}')">📋 复制答案</button>
+                </div>
+            </div>`;
+        t('✅ 答案已生成');
+        // Auto-copy to clipboard
+        try{await navigator.clipboard.writeText(r.answer);t('✅ 答案已自动复制')}catch(e){}
+    }catch(e){
+        $('ansSingle').innerHTML=`<div style="color:var(--err);padding:14px;background:rgba(239,68,68,.1);border-radius:10px;margin-top:12px">❌ ${E(e.message)}<br><button class="btn btn-out" onclick="doSingle()" style="margin-top:8px">🔄 重试</button></div>`;
+    }
+    S.busy=false;ld(btn,false);
+}
+
+// ── Question splitter ────────────────────────────────────
+function splitQuestions(raw){
+    const byBlank=raw.split(/\n\s*\n/).map(s=>s.trim()).filter(s=>s);
+    if(byBlank.length>1)return byBlank;
+    const byNum=raw.split(/\n(?=\s*(?:\d+[\.\、\)]\s*|第\d+题|Q\d+[\.\s]|[（(]\d+[）)]))/);
+    const result=byNum.map(s=>s.trim()).filter(s=>s);
+    if(result.length>1)return result;
+    return raw.split('\n').map(s=>s.trim()).filter(s=>s);
+}
+
+// ── Batch engine ─────────────────────────────────────────
+let _stopFlag=false,_allResults=[],_okCount=0,_failCount=0;
+
+function buildRow(r){
+    if(r.ok){
+        return `<tr><td class="idx">${r.idx}</td><td class="ans">${E(r.answer)}</td><td class="qprev" title="${E(r.preview)}">${E(r.preview)}</td><td class="act"><button class="btn btn-copy" onclick="cp(this,'${E(r.answer).replace(/'/g,"\\'")}')">复制</button></td></tr>`;
+    }
+    return `<tr class="fail"><td class="idx">${r.idx}</td><td class="ans" style="color:var(--err)">失败</td><td class="qprev" title="${E(r.preview)}">${E(r.preview)}</td><td class="act" style="font-size:11px;color:var(--err)">${E(r.answer.substring(0,40))}</td></tr>`;
+}
+
+function initBatchUI(total){
+    _stopFlag=false;_allResults=[];_okCount=0;_failCount=0;
+    $('ansBatch').innerHTML=`
+        <div class="result-summary" id="batchSum">
+            <strong id="batchOk">0</strong>/<span>${total}</span> 成功
+            <span style="color:var(--text2)" id="batchMeta">| 进行中...</span>
+            <button class="btn btn-stop" style="margin-left:auto" onclick="_stopFlag=true;this.textContent='已停止';this.disabled=true">⏹ 停止</button>
+        </div>
+        <div class="result-scroll"><table class="result-table">
+        <thead><tr><th>#</th><th>答案</th><th>题目预览</th><th>操作</th></tr></thead>
+        <tbody id="batchTbody"></tbody></table></div>`;
+}
+
+function appendRows(rows){
+    const tbody=$('batchTbody');if(tbody)tbody.insertAdjacentHTML('beforeend',rows);
+    const okEl=$('batchOk');if(okEl)okEl.textContent=_okCount;
+    const metaEl=$('batchMeta');if(metaEl)metaEl.textContent=`| ${_okCount+_failCount}题已处理`;
+}
+
+function finishBatch(total,ms,stopped){
+    const allOk=_allResults.filter(r=>r.ok);
+    const txt=allOk.map(r=>'#'+String(r.idx).padStart(3,'0')+'  '+r.answer).join('\\n');
+    $('batchSum').innerHTML=`
+        <strong>${_okCount}/${_allResults.length||total} 成功</strong>
+        <span style="color:var(--text2)">| ${Math.round(ms)}ms | ${_failCount}失败${stopped?' (已停止)':''}</span>
+        <button class="btn btn-copy" style="margin-left:auto" onclick="cp(this,'${txt}')">📋 复制全部答案</button>`;
+}
+
+async function doBatch(){
+    if(S.busy)return;
+    const raw=$('qBatch').value.trim();
+    if(!raw){t('请粘贴题目');return}
+    const qs=splitQuestions(raw);
+    if(!qs.length){t('未检测到题目');return}
+    if(qs.length>300){t('最多300题，当前'+qs.length+'题');return}
+
+    S.busy=true;const btn=$('btnBatch');
+    btn.innerHTML='<span class="spinner"></span> 准备中...';btn.disabled=true;
+    const start=performance.now();
+    const CHUNK=30,CONCURRENT=5;
+    const chunks=[];
+    for(let i=0;i<qs.length;i+=CHUNK)chunks.push(qs.slice(i,i+CHUNK));
+    initBatchUI(qs.length);
+    let active=0;
+
+    async function runChunk(ci){
+        if(_stopFlag)return;
+        active++;
+        const cqs=chunks[ci];
+        try{
+            const resp=await fetch(API+'/api/answer-batch',{
+                method:'POST',headers:{'Content-Type':'application/json'},
+                body:JSON.stringify({questions:cqs.map(q=>({question:q,question_type:'unknown'}))}),
+                signal:AbortSignal.timeout(90000)
+            });
+            const data=await resp.json();
+            const rows=[];
+            (data.results||[]).forEach((r,j)=>{
+                const idx=ci*CHUNK+j+1;
+                const ok=r.success;
+                if(ok){_okCount++;S.total++;S.time+=(performance.now()-start)/qs.length;}
+                else _failCount++;
+                const result={idx,answer:ok?clean(r.answer):'失败',preview:cqs[j].substring(0,80),ok};
+                _allResults.push(result);
+                rows.push(buildRow(result));
+            });
+            if(rows.length)appendRows(rows.join(''));
+        }catch(e){
+            cqs.forEach((q,j)=>{
+                _failCount++;
+                const idx=ci*CHUNK+j+1;
+                const result={idx,answer:E(e.message),preview:q.substring(0,80),ok:false};
+                _allResults.push(result);
+                appendRows(buildRow(result));
+            });
+        }
+        active--;
+    }
+
+    const pending=chunks.map((_,i)=>i);
+    while(pending.length>0&&!_stopFlag){
+        while(active<CONCURRENT&&pending.length>0&&!_stopFlag)runChunk(pending.shift());
+        await new Promise(r=>setTimeout(r,100));
+    }
+    while(active>0)await new Promise(r=>setTimeout(r,100));
+
+    const ms=performance.now()-start;
+    S.save();
+    finishBatch(qs.length,ms,_stopFlag);
+    const okAnswers=_allResults.filter(r=>r.ok);
+    if(okAnswers.length>0){
+        const allText=okAnswers.map(r=>'#'+String(r.idx).padStart(3,'0')+'  '+r.answer).join('\n');
+        try{await navigator.clipboard.writeText(allText);t(`✅ ${okAnswers.length}条答案已自动复制到剪贴板`)}catch(e){t(`完成: ${okAnswers.length}/${_allResults.length}`)}
+    }
+    S.busy=false;ld(btn,false);
+}
+
+// ── Keyboard ─────────────────────────────────────────────
+document.addEventListener('keydown',e=>{
+    if((e.ctrlKey||e.metaKey)&&e.key==='Enter'){
+        e.preventDefault();
+        if($('panelSingle').classList.contains('show'))doSingle();
+        else if($('panelBatch').classList.contains('show'))doBatch();
+    }
+});
+</script>
+</body>
+</html>
