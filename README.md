@@ -160,7 +160,7 @@ cd backend && python server.py
 | 平台 | 地址 | 价格 | 推荐 |
 |------|------|------|------|
 | **DeepSeek** | [platform.deepseek.com](https://platform.deepseek.com) | ¥2/百万token | ⭐推荐
-| **Kimi**    |  [platform.kimi.com](https://platform.kimi.com/)     |  Kimi K3 Very Good!!! | ❤️可以试试
+| **Kimi**    |  [platform.kimi.com](https://platform.kimi.com/)     | ¥2.00/百万token | ❤️可以试试
 ---
 
 ## 📚 API文档
