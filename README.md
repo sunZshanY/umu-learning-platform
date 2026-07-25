@@ -342,42 +342,6 @@ UMU学习平台/
 
 ---
 
-## 📦 发布到GitHub
-
-### 1. 初始化Git仓库
-
-```bash
-cd "UMU学习平台"
-git init
-git add .
-git commit -m "🎉 初始版本: UMU刷题助手 v1.0.0"
-```
-
-### 2. 创建GitHub仓库
-
-```bash
-gh repo create umu-quiz-helper --public --push --source .
-```
-
-或手动在github.com创建仓库后：
-
-```bash
-git remote add origin https://github.com/<你的用户名>/umu-quiz-helper.git
-git branch -M main
-git push -u origin main
-```
-
-### 3. 发布前检查清单
-
-- [ ] 确认 `backend/server.py` 中的默认API Key已移除或替换
-- [ ] 确认 `.gitignore` 包含 `*.log` 和 `.env`
-- [ ] 添加 `LICENSE` 文件
-- [ ] 更新 `README.md` 中的截图和链接
-- [ ] 测试公开版的API配置流程
-- [ ] 确保没有硬编码的敏感信息
-
----
-
 ## ❓ 常见问题
 
 <details>
