@@ -88,7 +88,10 @@ class AIService:
 第1步·破题：提取题干的1-2个核心关键词，判定本题考察的知识点或逻辑关系。
 第2步·审问：明确题干问的是什么——「正确的是/错误的是」「属于/不属于」「包括/不包括」。用笔圈出否定词：不、非、无、未、否、除、只、仅。
 第3步·析选项：
-  - 单选题：逐项与题干核心关键词比对，先排除明显错误项，再从剩余中选最优。遇到两个相似选项时，仔细找区分点。
+  - 单选题：逐项与题干核心关键词比对，先排除明显错误项，再从剩余中选最优。
+    * 「以上都是」选项：必须逐一验证A/B/C是否都正确，全部正确才选D。不可只看到第一个正确的就选。
+    * 「不属于/错误的是」：用排除法，先标记所有正确项，剩下的那个就是答案。
+    * 术语辨析：注意相似概念的区别（如「外观介绍」vs「文案描述」、「曝光量」vs「点击率」）。
   - 多选题：独立评判每个选项（假设其他选项不存在），对则留、错则弃、疑则弃。
   - 判断题：先忽略题干的否定词判断陈述本身的真假，再根据题干问法决定输出「正确」还是「错误」。
 第4步·验答：答案与题干再次比对——我选的是题干问的那个方向吗？我有没有把「选错误的」当成「选正确的」？
@@ -189,11 +192,16 @@ class AIService:
                 highlighted = highlighted.replace(word, f"⚠️【{word}】⚠️")
 
         # ── 检测题干最终问法 ──
+        # ── 题干方向检测 ──
+        is_negation = any(w in question for w in ["不属于", "错误的是", "不正确", "错误的", "不包括", "无关", "不能"])
         direction_hint = ""
-        if any(w in question for w in ["不属于", "错误的是", "不正确", "错误的", "不包括", "无关"]):
-            direction_hint = "\n\n🔴【重要】本题问的是「否定/排除」方向！要选出不正确/不属于的选项！"
-        elif any(w in question for w in ["属于", "正确的是", "正确", "包括", "有关"]):
-            direction_hint = "\n\n🟢【确认】本题问的是「肯定/选择」方向，选出正确/属于的选项。"
+        if is_negation:
+            direction_hint = "\n\n🔴【否定方向】本题问的是「不属于/错误的是」→ 用排除法：先找出所有正确/属于的选项，剩下的就是要选的答案。"
+        elif any(w in question for w in ["属于", "正确的是", "包括", "有关"]):
+            direction_hint = "\n\n🟢【肯定方向】本题问的是「属于/正确的是」→ 直接选出正确选项。"
+
+        # ── "以上都是" 检测 ──
+        has_all_above = options and any(re.match(r'^\s*[A-Ja-j]\s*[\.、]?\s*以上都是', str(o)) for o in options)
 
         parts.append(f"【题目】\n{highlighted}{direction_hint}")
 
@@ -204,7 +212,11 @@ class AIService:
 
             # 单选题：提示对比相似选项
             if question_type == QuestionType.SINGLE_CHOICE and len(options) >= 3:
-                parts.append("【排除策略】逐项读每个选项，找出与题干关键词最匹配的一项。如有两个选项相似，仔细找区分关键词。")
+                if has_all_above:
+                    parts.append("【⚠️ 「以上都是」选项】逐一检查A/B/C是否都正确，全部正确才选「以上都是」。不可看到一个正确项就直接选。")
+                if is_negation:
+                    parts.append("【排除法】题干问「不属于」→ 先标记哪些选项是正确的/属于的，排除它们，剩下的就是答案。不可直接选第一个看起来不对的。")
+                parts.append("【排除策略】逐项读每个选项，找出与题干关键词最匹配的一项。辨析相似术语（如外观介绍≠文案描述，曝光量≠点击率）。")
             elif question_type == QuestionType.MULTI_CHOICE:
                 parts.append("【多选策略】独立评判每个选项（A对吗？B对吗？...），确定正确的全部选出，不确定的不选。按ABCD顺序排列。")
 
@@ -216,15 +228,18 @@ class AIService:
         elif question_type == QuestionType.TRUE_FALSE:
             parts.append("【指令】按决策树三步走：①陈述真假？②题干问法？③定答案。只输出「正确」或「错误」。")
             if is_tf_converted:
-                parts.append("【⚠️ 批判性审查模式 — 培训考核判断题专项】")
-                parts.append("培训考核判断题的命题规律（务必内化）：")
-                parts.append("- 题干中「可以/允许/能够」→ 实际规则往往是「不可以」，答案是「错误」。")
-                parts.append("- 题干中「不能/禁止/不可以」→ 实际规则往往是「可以」，答案是「错误」。")
-                parts.append("- 对XX和YY做无本质区别的区分（如近义词vs同义词）→ 这是伪规则，答案是「错误」。")
-                parts.append("- 说XX和YY「冲突/矛盾/不能共存」→ 通常可以共存，答案是「错误」。")
-                parts.append("- 你应当预设答案为「错误」，只有当你100%确定该规则确实存在时才选「正确」。")
+                parts.append("【⚠️ 判断题专项 — 逐条验证，不预设答案】")
+                parts.append("请执行以下验证流程（不要凭感觉，要逐条核实）：")
+                parts.append("1. 拆解：将题干陈述拆成1-3个关键条件，逐一标注。")
+                parts.append("2. 验证每个条件：")
+                parts.append("   - 电商平台实际操作中是这样做吗？（从买家/卖家/平台角度想）")
+                parts.append("   - 这个说法是否过于绝对？是否有例外情况？")
+                parts.append("   - 如果有数据/工具/功能能支撑这个说法 → 倾向「正确」")
+                parts.append("3. 综合判断：所有条件都成立 → 「正确」；任一条件不成立 → 「错误」。")
+                parts.append("4. 特别注意：不要因为题目是「培训考核题」就预设答案为错——")
+                parts.append("   正确的规则陈述同样是常见的考点。凭逻辑和常识判断，不为反而反。")
             else:
-                parts.append("【⚠️ 批判性提醒】不要默认同意题干陈述！存疑时倾向判「错误」。")
+                parts.append("【⚠️ 批判性提醒】逐条验证题干条件后再判断，不要预设答案。")
 
         # ── 二次验证 ──
         if is_verify and first_answer:
