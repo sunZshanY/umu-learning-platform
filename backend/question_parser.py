@@ -275,25 +275,36 @@ class QuestionParser:
         if QuestionParser._has_multi_choice_signals(compact):
             return QuestionType.MULTI_CHOICE
 
-        # 2. 判断题检测
-        if len(options) <= 2 and re.search(r"判断|是否|对错|正误|正确.*错误|对.*错", compact):
-            return QuestionType.TRUE_FALSE
-        # 判断题：只有"正确""错误"两个选项
+        # 2. 对/错 判断题检测（伪装成单选的最常见陷阱）
         if options and len(options) == 2:
-            opt_texts = " ".join(options).replace(" ", "")
-            if re.search(r"(正确|对|√|✅).*(错误|错|×|❌)", opt_texts) or \
-               re.search(r"(错误|错|×|❌).*(正确|对|√|✅)", opt_texts):
-                return QuestionType.TRUE_FALSE
+            opt_texts = " ".join(options).replace(" ", "").lower()
+            # A.对 B.错 / A.正确 B.错误 / A.是 B.否 等
+            tf_pairs = [
+                (r"对.*错", r"错.*对"),
+                (r"正确.*错误", r"错误.*正确"),
+                (r"是.*否", r"否.*是"),
+                (r"true.*false", r"false.*true"),
+                (r"yes.*no", r"no.*yes"),
+                (r"√.*[×x❌]", r"[×x❌].*√"),
+                (r"✅.*❌", r"❌.*✅"),
+            ]
+            for p1, p2 in tf_pairs:
+                if re.search(p1, opt_texts) or re.search(p2, opt_texts):
+                    return QuestionType.TRUE_FALSE
 
-        # 3. 填空题检测
+        # 3. 判断题检测（题干信号词）
+        if len(options) <= 2 and re.search(r"判断|是否|对错|正误", compact):
+            return QuestionType.TRUE_FALSE
+
+        # 4. 填空题检测
         if re.search(r"填空|_{2,}|（\s*）|\(\s*\)|【\s*】|\[空格\]|填入", raw):
             return QuestionType.FILL_BLANK
 
-        # 4. 简答题检测
+        # 5. 简答题检测
         if re.search(r"简答|论述|说明理由|阐述|分析原因|试述|概述|简述|请说明|请分析", compact):
             return QuestionType.SHORT_ANSWER
 
-        # 5. 有选项默认为单选
+        # 6. 有选项默认为单选
         if len(options) >= 2:
             return QuestionType.SINGLE_CHOICE
 

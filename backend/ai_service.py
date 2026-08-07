@@ -154,6 +154,7 @@ class AIService:
         context: Optional[str] = None,
         is_verify: bool = False,
         first_answer: str = "",
+        is_tf_converted: bool = False,
     ) -> str:
         parts = []
 
@@ -214,11 +215,25 @@ class AIService:
             parts.append("【指令】输出所有正确选项字母+内容，字母按顺序排列。格式: XYZ. 选项1、选项2、选项3")
         elif question_type == QuestionType.TRUE_FALSE:
             parts.append("【指令】按决策树三步走：①陈述真假？②题干问法？③定答案。只输出「正确」或「错误」。")
+            if is_tf_converted:
+                parts.append("【⚠️ 批判性审查模式 — 培训考核判断题专项】")
+                parts.append("培训考核判断题的命题规律（务必内化）：")
+                parts.append("- 题干中「可以/允许/能够」→ 实际规则往往是「不可以」，答案是「错误」。")
+                parts.append("- 题干中「不能/禁止/不可以」→ 实际规则往往是「可以」，答案是「错误」。")
+                parts.append("- 对XX和YY做无本质区别的区分（如近义词vs同义词）→ 这是伪规则，答案是「错误」。")
+                parts.append("- 说XX和YY「冲突/矛盾/不能共存」→ 通常可以共存，答案是「错误」。")
+                parts.append("- 你应当预设答案为「错误」，只有当你100%确定该规则确实存在时才选「正确」。")
+            else:
+                parts.append("【⚠️ 批判性提醒】不要默认同意题干陈述！存疑时倾向判「错误」。")
 
         # ── 二次验证 ──
         if is_verify and first_answer:
             parts.append(f"\n⚠️【复核模式】你之前的答案是: {first_answer}")
-            parts.append("请你以批判性思维重新审题：之前的答案是否真的正确？题干有无否定词被忽略？多选题有无漏选或多选？")
+            parts.append("请你以最严厉的批判性思维重新审题：")
+            parts.append("1. 之前的答案是否真的正确？题干有无否定词被忽略？")
+            parts.append("2. 陈述中的每个条件都100%成立吗？有无反例？")
+            parts.append("3. 如果是平台规则/行业规范类题目，规则是否比直觉更严格？")
+            parts.append("4. 常见的错误是「默认同意」——请刻意寻找陈述中的漏洞。")
             parts.append("若确认正确→输出相同答案。若发现错误→输出修正后的答案。")
 
         parts.append("\n【最终指令】只输出答案本身。不要推理过程，不要解释，不要括号注释，不要Markdown。")
@@ -502,8 +517,37 @@ class AIService:
         start_time = time.monotonic()
         retry_count = 0
 
+        # ── 智能题型转换：对/错选项 → 判断题 ──
+        effective_type = question_type
+        tf_option_map = {}  # 记录对/错→选项字母的映射
+        if options and question_type in (QuestionType.SINGLE_CHOICE, QuestionType.UNKNOWN):
+            is_tf = False
+            for opt in options:
+                # 提取字母和内容：A. 对 → letter=A, content=对
+                m = re.match(r'^\s*([A-Ja-j])\s*[\.、\)）:：]?\s*(.+?)\s*$', str(opt))
+                if not m:
+                    continue
+                letter = m.group(1).upper()
+                content = m.group(2).strip()
+                # 判断内容是否是对/错/正确/错误等
+                if re.match(r'^(对|正确|[√✅]|是|true|yes)$', content, re.IGNORECASE):
+                    tf_option_map["correct"] = letter
+                elif re.match(r'^(错|错误|[×x❌]|否|false|no)$', content, re.IGNORECASE):
+                    tf_option_map["incorrect"] = letter
+            if "correct" in tf_option_map and "incorrect" in tf_option_map:
+                effective_type = QuestionType.TRUE_FALSE
+                logger.info(
+                    f"检测到对/错选项，自动转为判断题处理 | "
+                    f"对→{tf_option_map.get('correct','?')} 错→{tf_option_map.get('incorrect','?')}"
+                )
+
+        is_tf_converted = bool(tf_option_map)
+
         system_prompt = self._build_system_prompt()
-        user_prompt = self._build_user_prompt(question, question_type, options, context)
+        user_prompt = self._build_user_prompt(
+            question, effective_type, options, context,
+            is_tf_converted=is_tf_converted,
+        )
 
         # ── 第一次调用 ──
         raw_text, error = await self._call_api(system_prompt, user_prompt)
@@ -524,11 +568,11 @@ class AIService:
 
         # ── 解析第一次结果 ──
         answer, explanation, confidence = self._parse_response(
-            raw_text, question_type=question_type, options=options
+            raw_text, question_type=effective_type, options=options
         )
 
         # ── 验证答案合理性 ──
-        is_valid, issue = self._validate_answer(answer, question_type, options)
+        is_valid, issue = self._validate_answer(answer, effective_type, options)
         if not is_valid:
             logger.warning(f"答案验证异常: {issue} | 原始输出: {raw_text[:100]}")
             confidence = min(confidence, 0.60)
@@ -536,7 +580,7 @@ class AIService:
         # ── 二次验证策略 ──
         # 多选和判断题错误率最高 → 强制验证
         # 单选/填空/简答 → 低置信度时验证
-        force_verify = question_type in (QuestionType.MULTI_CHOICE, QuestionType.TRUE_FALSE)
+        force_verify = effective_type in (QuestionType.MULTI_CHOICE, QuestionType.TRUE_FALSE)
         need_verify = (
             not is_valid
             or confidence < 0.85
@@ -547,23 +591,24 @@ class AIService:
             reason = "强制验证" if force_verify else ("格式异常" if not is_valid else f"低置信度({confidence:.2f})")
             logger.info(
                 f"触发二次验证 | {reason} | "
-                f"有效: {is_valid} | 题型: {question_type.value}"
+                f"有效: {is_valid} | 题型: {effective_type.value}"
             )
             self._total_retries += 1
 
             verify_prompt = self._build_user_prompt(
-                question, question_type, options, context,
+                question, effective_type, options, context,
                 is_verify=True, first_answer=answer,
+                is_tf_converted=is_tf_converted,
             )
 
             verify_text, verify_error = await self._call_api(system_prompt, verify_prompt)
 
             if verify_text and not verify_error:
                 verify_answer, verify_explanation, verify_confidence = self._parse_response(
-                    verify_text, question_type=question_type, options=options
+                    verify_text, question_type=effective_type, options=options
                 )
                 verify_valid, verify_issue = self._validate_answer(
-                    verify_answer, question_type, options
+                    verify_answer, effective_type, options
                 )
 
                 # 如果验证答案更合理，采用验证结果
@@ -587,6 +632,17 @@ class AIService:
             f"AI答题成功 | 耗时: {elapsed:.0f}ms | "
             f"置信度: {confidence:.2f} | 答案: {answer[:60]}"
         )
+
+        # ── 答案回转换：判断题结果 → 对/错选项格式 ──
+        if tf_option_map:
+            if "正确" in answer and "correct" in tf_option_map:
+                letter = tf_option_map["correct"]
+                answer = f"{letter}. 对"
+                logger.info(f"判断题结果转换: 正确 → {answer}")
+            elif "错误" in answer and "incorrect" in tf_option_map:
+                letter = tf_option_map["incorrect"]
+                answer = f"{letter}. 错"
+                logger.info(f"判断题结果转换: 错误 → {answer}")
 
         return AnswerResponse(
             success=True,
