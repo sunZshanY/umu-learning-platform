@@ -199,6 +199,17 @@
                 <button class="quick" onclick="$('qSingle').value='';$('qSingle').focus()">🗑 清空</button>
                 <button class="quick" onclick="pasteFromClipboard('qSingle')">📋 粘贴剪贴板</button>
             </div>
+            <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
+                <span style="font-size:13px;color:var(--text2)">题型：</span>
+                <select id="qSingleType" style="flex:1;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:8px;padding:10px;font-family:inherit;font-size:14px">
+                    <option value="unknown">自动判断</option>
+                    <option value="single_choice">单选题</option>
+                    <option value="multi_choice">多选题</option>
+                    <option value="true_false">判断题</option>
+                    <option value="fill_blank">填空题</option>
+                    <option value="short_answer">简答题</option>
+                </select>
+            </div>
             <button class="btn btn-go" id="btnSingle" onclick="doSingle()">🚀 获取答案</button>
             <div id="ansSingle"></div>
         </div>
@@ -224,6 +235,12 @@
                 <div class="parse-head">
                     <strong id="parseSummary">已提取0题</strong>
                     <span>可先检查题干和题型，再生成答案</span>
+                </div>
+                <div class="quick-row" style="margin-bottom:10px" id="typeQuickRow">
+                    <button class="quick" onclick="setAllTypes('single_choice')" title="将所有题目题型设为单选题">📝 全部设为单选</button>
+                    <button class="quick" onclick="setAllTypes('true_false')" title="将所有题目题型设为判断题">✅ 全部设为判断</button>
+                    <button class="quick" onclick="setAllTypes('multi_choice')" title="将所有题目题型设为多选题">📋 全部设为多选</button>
+                    <button class="quick" onclick="setAllTypes('unknown')" title="恢复自动判断题型">🔄 恢复自动判断</button>
                 </div>
                 <div class="q-list" id="parsedList"></div>
             </div>
@@ -319,10 +336,10 @@ async function checkHealth(){
 checkHealth();setInterval(checkHealth,20000);
 
 // ── AI Call ──────────────────────────────────────────────
-async function callAI(question,timeout){
+async function callAI(question,questionType,timeout){
     const r=await fetch(API+'/api/answer',{
         method:'POST',headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({question,question_type:'unknown'}),
+        body:JSON.stringify({question,question_type:questionType||'unknown'}),
         signal:AbortSignal.timeout(timeout||25000)
     });
     if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e.error||'服务器错误')}
@@ -338,9 +355,10 @@ async function doSingle(){
     if(!q){t('请粘贴题目内容');$('qSingle').focus();return}
 
     S.busy=true;const btn=$('btnSingle');ld(btn,true);
+    const qType=$('qSingleType').value;
     const start=performance.now();
     try{
-        const r=await callAI(q,25000);
+        const r=await callAI(q,qType,25000);
         const ms=performance.now()-start;
         S.total++;S.time+=ms;S.save();
         $('ansSingle').innerHTML=`
@@ -424,6 +442,16 @@ async function extractQuestions(){
         t(`使用本地分割: ${parsedQuestions.length}题`);
     }
     S.busy=false;btn.disabled=false;btn.innerHTML=btn._t||btn.innerHTML;
+}
+
+function setAllTypes(type){
+    if(!parsedQuestions.length){t('请先提取题目');return}
+    const names={single_choice:'单选',true_false:'判断',multi_choice:'多选',unknown:'自动判断'};
+    parsedQuestions.forEach(q=>{q.question_type=type});
+    renderParsedQuestions();
+    t(`✅ 已将所有题目设为「${names[type]||type}」`);
+    // Update all select elements
+    document.querySelectorAll('.q-type').forEach(sel=>{sel.value=type});
 }
 
 function getBatchQuestions(raw){

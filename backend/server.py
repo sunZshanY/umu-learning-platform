@@ -18,6 +18,9 @@ import time
 import logging
 import traceback
 from contextlib import asynccontextmanager
+
+from dotenv import load_dotenv
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
 from typing import Optional
 
 from fastapi import FastAPI, HTTPException, Request

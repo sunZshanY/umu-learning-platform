@@ -36,6 +36,10 @@ from typing import List, Tuple, Optional, Dict, Any
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 
+# ── 加载 .env 配置 ─────────────────────────────────────────────
+from dotenv import load_dotenv
+load_dotenv(os.path.join(os.path.dirname(__file__), ".env"))
+
 # ── 依赖检查 ─────────────────────────────────────────────────
 try:
     from openai import AsyncOpenAI, OpenAIError
@@ -64,8 +68,9 @@ DEFAULT_MODEL = os.environ.get("UMU_AI_MODEL", "deepseek-chat")
 DEFAULT_TIMEOUT = 180          # 3分钟
 DEFAULT_CONCURRENCY = 20       # 并发数（300题约90秒完成）
 DEFAULT_MAX_WRONG = 3          # 最大错误数
-AI_TIMEOUT = 20                # 单次AI调用超时(秒)
+AI_TIMEOUT = 30                # 单次AI调用超时(秒) — 提升以应对复杂推理
 MAX_RETRIES = 2                # AI调用重试次数
+MAX_TOKENS = 2048              # 最大输出token
 
 
 # ═══════════════════════════════════════════════════════════════
@@ -129,29 +134,43 @@ class QuestionParser:
 class AIClient:
     """异步AI答题客户端"""
 
-    SYSTEM_PROMPT = """你是一个追求100%正确率的专业答题专家。先在脑中严谨推理，确认无误后只输出最终答案。
+    SYSTEM_PROMPT = """你是国家级标准化考试命题专家，拥有各学科博士学位。你的目标是100%准确率。
 
-核心原则：
-1. 绝对准确第一，速度第二
-2. 逐字审题，警惕陷阱（绝对化表述、双重否定、偷换概念）
-3. 理工科题目用公式/定理验证，文科题目以权威教材为准
-4. 不确定时优先选最常见的标准答案，而非偏门选项
+【核心答题协议 — 必须逐条执行】
+第1步·破题：提取题干的1-2个核心关键词，判定本题考察的知识点或逻辑关系。
+第2步·审问：明确题干问的是什么——「正确的是/错误的是」「属于/不属于」「包括/不包括」。用笔圈出否定词。
+第3步·析选项：
+  - 单选题：逐项与题干核心关键词比对，先排除明显错误项，再从剩余中选最优。遇到两个相似选项时，仔细找区分点。
+  - 多选题：独立评判每个选项（假设其他选项不存在），对则留、错则弃、疑则弃。
+  - 判断题：先忽略题干的否定词判断陈述本身的真假，再根据题干问法决定输出「正确」还是「错误」。
+第4步·验答：答案与题干再次比对——我选的是题干问的那个方向吗？
+第5步·输出：严格按格式输出，一字不多。
 
-输出规范（严格遵守）：
-- 单选题：选项字母+内容，如"B. 北京"
-- 多选题：选项字母+内容，如"ABD. 光合作用、呼吸作用、蒸腾作用"
-- 判断题：仅"正确"或"错误"
-- 填空题：仅答案内容，不超过30字
-- 简答题：仅核心答案，不超过50字
+【输出格式 — 违反格式=答错】
+单选题 → "<字母>. <选项内容>"              示例: C. 线粒体
+多选题 → "<字母序列>. <选项内容>"          示例: ABD. 光合作用、呼吸作用、蒸腾作用
+                                           字母按A→Z顺序排列，不可打乱
+判断题 → "正确" 或 "错误"                 仅此两字，不加任何标点
+填空题 → 填空内容                         不超过30字
+简答题 → 核心答案                         不超过80字
 
-严禁事项：
-- 禁止任何Markdown标记（** __ ## ` 等）
-- 禁止输出推理过程、解析步骤、解释说明
-- 禁止使用下划线、星号、井号、反引号
-- 禁止输出"答案:"、"解析:"、"正确选项是"等前缀
-- 禁止输出置信度数值
-- 禁止多行输出（多选除外）
-- 禁止任何括号注释"""
+【高频错误防御】
+错误1「审反」：题干问「不属于/错误的是」→ 输出前强制检查，反向确认。
+错误2「漏选」：多选题少选了正确选项 → 每个选项独立评估，不要横向比较。
+错误3「多选」：多选题选了错误选项 → 有疑虑就坚决不选。
+错误4「看串行」：选项字母与内容对应错 → 每个选项连字母带内容一起读。
+错误5「想当然」：凭常识选而不看题目表述 → 答案严格基于题目给出的信息。
+
+【判断题决策树】
+1. 陈述本身是真还是假？
+2. 题干最终问的是「正确」还是「错误」？
+3. 问「正确」+陈述真 → 「正确」；问「正确」+陈述假 → 「错误」
+4. 问「错误」+陈述真 → 「错误」；问「错误」+陈述假 → 「正确」
+
+【多选题决策树】
+1. 逐一检查每个选项，独立判断其正确性
+2. 只选100%确定正确的，有疑虑的不选
+3. 按字母顺序排列输出"""
 
     def __init__(self, api_key: str, base_url: str, model: str):
         self.client = AsyncOpenAI(
@@ -171,16 +190,20 @@ class AIClient:
         self.stats["total"] += 1
         t0 = time.time()
 
+        # 构建结构化输入
+        user_prompt = self._build_user_prompt(question)
+
         for attempt in range(MAX_RETRIES + 1):
             try:
                 resp = await self.client.chat.completions.create(
                     model=self.model,
                     messages=[
                         {"role": "system", "content": self.SYSTEM_PROMPT},
-                        {"role": "user", "content": question},
+                        {"role": "user", "content": user_prompt},
                     ],
-                    temperature=0.1,
-                    max_tokens=512,
+                    temperature=0.0,
+                    max_tokens=MAX_TOKENS,
+                    top_p=0.95,
                 )
                 raw = resp.choices[0].message.content or ""
                 answer = self._clean(raw)
@@ -199,6 +222,38 @@ class AIClient:
                     return (f"[错误: {str(e)[:80]}]", False, elapsed)
 
     @staticmethod
+    def _build_user_prompt(question: str) -> str:
+        """构建结构化用户提示词"""
+        # 高亮否定词和限定词
+        highlighted = question
+        negations = [
+            "不是", "不正确", "不属于", "错误的是", "不正确的是", "错误的说法",
+            "无关", "不能", "不包括", "不包含", "没有", "无", "非", "除外",
+            "不符合", "不涉及", "不能解释",
+        ]
+        qualifiers = [
+            "至少", "全部", "均", "一定", "最", "首要", "主要", "根本",
+            "核心", "基本", "唯一", "必须", "绝对", "完全",
+        ]
+        for word in negations + qualifiers:
+            if word in highlighted:
+                highlighted = highlighted.replace(word, f"【{word}】")
+
+        # 检测题干方向
+        direction = ""
+        if any(w in question for w in ["不属于", "错误的是", "不正确", "错误的", "不包括", "无关"]):
+            direction = "\n\n【警告】本题问的是否定方向！要选不正确/不属于的选项！"
+        elif any(w in question for w in ["属于", "正确的是", "正确", "包括"]):
+            direction = "\n\n【确认】本题问的是肯定方向，选出正确/属于的选项。"
+
+        return f"""【题目】
+{highlighted}{direction}
+
+【题型】请根据题干和选项自动判断题型（单选/多选/判断/填空/简答）
+
+【指令】只输出最终答案。单选→字母+内容；多选→字母序列+内容(按字母序)；判断→正确/错误；填空→填空内容；简答→核心答案。"""
+
+    @staticmethod
     def _clean(text: str) -> str:
         """清洗AI输出中的格式残留"""
         text = re.sub(r'\*\*(.+?)\*\*', r'\1', text)
@@ -207,7 +262,9 @@ class AIClient:
         text = re.sub(r'_(.+?)_', r'\1', text)
         text = re.sub(r'`(.+?)`', r'\1', text)
         text = re.sub(r'^#{1,6}\s+', '', text, flags=re.MULTILINE)
-        text = re.sub(r'^(答案|解析|置信度)[：:]\s*', '', text, flags=re.MULTILINE)
+        text = re.sub(r'^(答案|解析|置信度|正确选项|正确答案|我的答案是?|最终答案)[：:]\s*', '', text, flags=re.MULTILINE)
+        text = re.sub(r'^[\[【].*?[\]】]\s*', '', text, flags=re.MULTILINE)
+        text = re.sub(r'\n{3,}', '\n\n', text)
         return text.strip()
 
 
