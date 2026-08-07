@@ -1,0 +1,4462 @@
+{
+  "schema_version": 1,
+  "valid": false,
+  "summary": {
+    "questions": 215,
+    "answers": 215,
+    "ok": 195,
+    "missing": 0,
+    "invalid": 20,
+    "issues": 20
+  },
+  "issues": [
+    {
+      "code": "unknown_option",
+      "number": 8,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 21,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 23,
+      "answer": "D"
+    },
+    {
+      "code": "unknown_option",
+      "number": 28,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 51,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 84,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 94,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 99,
+      "answer": "D"
+    },
+    {
+      "code": "unknown_option",
+      "number": 101,
+      "answer": "D"
+    },
+    {
+      "code": "unknown_option",
+      "number": 139,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 164,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 165,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 168,
+      "answer": "D"
+    },
+    {
+      "code": "unknown_option",
+      "number": 184,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 190,
+      "answer": "D"
+    },
+    {
+      "code": "unknown_option",
+      "number": 196,
+      "answer": "D"
+    },
+    {
+      "code": "unknown_option",
+      "number": 197,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 198,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 205,
+      "answer": "C"
+    },
+    {
+      "code": "unknown_option",
+      "number": 210,
+      "answer": "D"
+    }
+  ],
+  "questions": [
+    {
+      "number": 1,
+      "parser_id": "q_1",
+      "question": "单击\"发货\"后，大多数商家会选择\"____\"，然后根据实际情况选择合适的快递公司，填写快递单号并确认，至此商家完成了发货操作。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "无需下单",
+        "B": "自己联系物流",
+        "C": "在线下单",
+        "D": "自动发货"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q1. 单击\"发货\"后，大多数商家会选择\"____\"，然后根据实际情况选择合适的快递公司，填写快递单号并确认，至此商家完成了发货操作。（单选，1分）\nA. 无需下单\nB. 自己联系物流\nC. 在线下单\nD. 自动发货"
+    },
+    {
+      "number": 2,
+      "parser_id": "q_2",
+      "question": "商品描述中，“对比手法”主要用于展示(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商品价格",
+        "B": "商品与其他同质化商品的对比信息",
+        "C": "商品产地",
+        "D": "商品销售情况"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q2. 商品描述中，“对比手法”主要用于展示(    )（单选，1分）\nA. 商品价格\nB. 商品与其他同质化商品的对比信息\nC. 商品产地\nD. 商品销售情况"
+    },
+    {
+      "number": 3,
+      "parser_id": "q_3",
+      "question": "商品主图的第五张图通常放( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商品促销信息图",
+        "B": "商品细节图",
+        "C": "商品白底图",
+        "D": "商品场景图"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q3. 商品主图的第五张图通常放( )（单选，1分）\nA. 商品促销信息图\nB. 商品细节图\nC. 商品白底图\nD. 商品场景图"
+    },
+    {
+      "number": 4,
+      "parser_id": "q_4",
+      "question": "“蓝海词”是指( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "市场搜索热度比较高的词",
+        "B": "市场竞争比较小的词",
+        "C": "商品的品牌名称",
+        "D": "店铺的促销信息"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q4. “蓝海词”是指( )（单选，1分）\nA. 市场搜索热度比较高的词\nB. 市场竞争比较小的词\nC. 商品的品牌名称\nD. 店铺的促销信息"
+    },
+    {
+      "number": 5,
+      "parser_id": "q_5",
+      "question": "在编辑商品信息时，如果在“一口价”下选择了多种规格，则需填写( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "单一价格",
+        "B": "对应的价格及数量",
+        "C": "商品总价格",
+        "D": "商品平均价格"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q5. 在编辑商品信息时，如果在“一口价”下选择了多种规格，则需填写( )（单选，1分）\nA. 单一价格\nB. 对应的价格及数量\nC. 商品总价格\nD. 商品平均价格"
+    },
+    {
+      "number": 6,
+      "parser_id": "q_6",
+      "question": "以商品推广为主的店招首先要考虑的内容是店铺名称、店铺标志、店铺标语。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q6. 以商品推广为主的店招首先要考虑的内容是店铺名称、店铺标志、店铺标语。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 7,
+      "parser_id": "q_7",
+      "question": "店招要直观明确地告诉消费者自己店铺是卖什么的，表现形式最好是实物照片。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q7. 店招要直观明确地告诉消费者自己店铺是卖什么的，表现形式最好是实物照片。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 8,
+      "parser_id": "q_8",
+      "question": "智能版淘宝旺铺可以设置宽度为1820像素的全屏轮播。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q8. 智能版淘宝旺铺可以设置宽度为1820像素的全屏轮播。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 9,
+      "parser_id": "q_9",
+      "question": "对于偏远地区，一定要核实物流的情况，以防商品不能按照消费者要求到达，降低店铺在消费者心目中的信誉。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q9. 对于偏远地区，一定要核实物流的情况，以防商品不能按照消费者要求到达，降低店铺在消费者心目中的信誉。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 10,
+      "parser_id": "q_10",
+      "question": "白底图的图片尺寸要求是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "600像素x600像素",
+        "B": "700像素x700像素",
+        "C": "800像素x800像素",
+        "D": "900像素x900像素"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q10. 白底图的图片尺寸要求是( )（单选，1分）\nA. 600像素x600像素\nB. 700像素x700像素\nC. 800像素x800像素\nD. 900像素x900像素"
+    },
+    {
+      "number": 11,
+      "parser_id": "q_11",
+      "question": "设置轮播图片时要注意多张图片高度的统一，模块高度一旦设定，超出部分图片也将被显示。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q11. 设置轮播图片时要注意多张图片高度的统一，模块高度一旦设定，超出部分图片也将被显示。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 12,
+      "parser_id": "q_12",
+      "question": "商品标题的填写目的是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "提升搜索曝光量",
+        "B": "增加店铺知名度",
+        "C": "提高搜索点击率",
+        "D": "增加消费者评价"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q12. 商品标题的填写目的是( )（单选，1分）\nA. 提升搜索曝光量\nB. 增加店铺知名度\nC. 提高搜索点击率\nD. 增加消费者评价"
+    },
+    {
+      "number": 13,
+      "parser_id": "q_13",
+      "question": "在有些促销活动中会涉及赠品等，不能将商品与赠品一同发货，也不能漏发。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q13. 在有些促销活动中会涉及赠品等，不能将商品与赠品一同发货，也不能漏发。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 14,
+      "parser_id": "q_14",
+      "question": "编辑商品信息时，如果商品已经被消费者拍下，那么之后对该商品信息的修改对该笔交易信息的影响是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "立即影响",
+        "B": "不影响",
+        "C": "延迟影响",
+        "D": "取消交易"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q14. 编辑商品信息时，如果商品已经被消费者拍下，那么之后对该商品信息的修改对该笔交易信息的影响是( )（单选，1分）\nA. 立即影响\nB. 不影响\nC. 延迟影响\nD. 取消交易"
+    },
+    {
+      "number": 15,
+      "parser_id": "q_15",
+      "question": "设计网上店铺招牌时更多地从____的角度去考虑。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "招徕消费者",
+        "B": "留客",
+        "C": "消费者",
+        "D": "顾客"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q15. 设计网上店铺招牌时更多地从____的角度去考虑。（单选，1分）\nA. 招徕消费者\nB. 留客\nC. 消费者\nD. 顾客"
+    },
+    {
+      "number": 16,
+      "parser_id": "q_16",
+      "question": "图片轮播的模块高度设置的范围为____像素，多张图片高度要统一。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "120~400",
+        "B": "100~800",
+        "C": "100~600",
+        "D": "450~750"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q16. 图片轮播的模块高度设置的范围为____像素，多张图片高度要统一。（单选，1分）\nA. 120~400\nB. 100~800\nC. 100~600\nD. 450~750"
+    },
+    {
+      "number": 17,
+      "parser_id": "q_17",
+      "question": "商品描述编辑的高级模式可以对上传的图文进行继续编辑，如裁剪、添加优惠券模块等。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q17. 商品描述编辑的高级模式可以对上传的图文进行继续编辑，如裁剪、添加优惠券模块等。(    )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 18,
+      "parser_id": "q_18",
+      "question": "促销关键词是很容易吸引和打动消费者的。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q18. 促销关键词是很容易吸引和打动消费者的。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 19,
+      "parser_id": "q_19",
+      "question": "在淘宝等电子商务平台中，商品描述的主要目的是(    )。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "展示商家实力",
+        "B": "提供物流方式",
+        "C": "展示商品信息，吸引消费者",
+        "D": "增加广告收入"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q19. 在淘宝等电子商务平台中，商品描述的主要目的是(    )。（单选，1分）\nA. 展示商家实力\nB. 提供物流方式\nC. 展示商品信息，吸引消费者\nD. 增加广告收入"
+    },
+    {
+      "number": 20,
+      "parser_id": "q_20",
+      "question": "下列情况中，不可以进行订单合并的是____。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "顾客在订单备注中要求与其另一订单寄往同一处地址",
+        "B": "同一顾客下单时留了两个收货地址，经确认实际只发一个地址",
+        "C": "不同买家ID但相同收货人及收货地址的订单",
+        "D": "消费者在备注中要求将订单商品分成几批进行发货"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q20. 下列情况中，不可以进行订单合并的是____。（单选，1分）\nA. 顾客在订单备注中要求与其另一订单寄往同一处地址\nB. 同一顾客下单时留了两个收货地址，经确认实际只发一个地址\nC. 不同买家ID但相同收货人及收货地址的订单\nD. 消费者在备注中要求将订单商品分成几批进行发货"
+    },
+    {
+      "number": 21,
+      "parser_id": "q_21",
+      "question": "消费者在备注中要求将订单商品分成几批进行发货，商家就要对订单进行拆分处理。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q21. 消费者在备注中要求将订单商品分成几批进行发货，商家就要对订单进行拆分处理。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 22,
+      "parser_id": "q_22",
+      "question": "在商品标题设置中，属于促销关键词的是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "土豆",
+        "B": "特价",
+        "C": "手机壳",
+        "D": "华为"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q22. 在商品标题设置中，属于促销关键词的是( )（单选，1分）\nA. 土豆\nB. 特价\nC. 手机壳\nD. 华为"
+    },
+    {
+      "number": 23,
+      "parser_id": "q_23",
+      "question": "导购标题在填写时，可以添加同义词。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q23. 导购标题在填写时，可以添加同义词。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 24,
+      "parser_id": "q_24",
+      "question": "商品描述中如果需要展示商品的使用案例，这部分内容应该包括在       中。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商品外观介绍",
+        "B": "商品消费者使用案例",
+        "C": "商品视频",
+        "D": "以往好评展示"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q24. 商品描述中如果需要展示商品的使用案例，这部分内容应该包括在       中。(    )（单选，1分）\nA. 商品外观介绍\nB. 商品消费者使用案例\nC. 商品视频\nD. 以往好评展示"
+    },
+    {
+      "number": 25,
+      "parser_id": "q_25",
+      "question": "商品描述编辑时，(    )编辑模式适用于需要对上传的图文进行继续编辑的商家。  (    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "基础",
+        "B": "高级",
+        "C": "批量",
+        "D": "快速"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q25. 商品描述编辑时，(    )编辑模式适用于需要对上传的图文进行继续编辑的商家。  (    )（单选，1分）\nA. 基础\nB. 高级\nC. 批量\nD. 快速"
+    },
+    {
+      "number": 26,
+      "parser_id": "q_26",
+      "question": "标题中不能出现同义词，但可以出现近义词。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q26. 标题中不能出现同义词，但可以出现近义词。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 27,
+      "parser_id": "q_27",
+      "question": "导购标题在填写时，不需要考虑商品的重要属性。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q27. 导购标题在填写时，不需要考虑商品的重要属性。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 28,
+      "parser_id": "q_28",
+      "question": "白底图可以突出商品本身，使消费者更专注于商品细节和特色。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q28. 白底图可以突出商品本身，使消费者更专注于商品细节和特色。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 29,
+      "parser_id": "q_29",
+      "question": "店铺招牌的尺寸大小是____，不符合要求的图片上传会显示异常。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "950像素×150像素",
+        "B": "720像素×120像素",
+        "C": "950像素×120像素",
+        "D": "750像素×150像素"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q29. 店铺招牌的尺寸大小是____，不符合要求的图片上传会显示异常。（单选，1分）\nA. 950像素×150像素\nB. 720像素×120像素\nC. 950像素×120像素\nD. 750像素×150像素"
+    },
+    {
+      "number": 30,
+      "parser_id": "q_30",
+      "question": "上传了3:4的主图视频，必须上传＿的主图。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "1:1",
+        "B": "3:4",
+        "C": "4:3",
+        "D": "16:9"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q30. 上传了3:4的主图视频，必须上传＿的主图。( )（单选，1分）\nA. 1:1\nB. 3:4\nC. 4:3\nD. 16:9"
+    },
+    {
+      "number": 31,
+      "parser_id": "q_31",
+      "question": "下列不是商品标题关键词类型的是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "属性关键词",
+        "B": "促销关键词",
+        "C": "品牌关键词",
+        "D": "利润关键词"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q31. 下列不是商品标题关键词类型的是( )（单选，1分）\nA. 属性关键词\nB. 促销关键词\nC. 品牌关键词\nD. 利润关键词"
+    },
+    {
+      "number": 32,
+      "parser_id": "q_32",
+      "question": "在____处输入图片地址，单击\"确定\"按钮后就设置好商品分类图片了。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "内部图片地址",
+        "B": "类目名称",
+        "C": "分类名称",
+        "D": "类目搜索"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q32. 在____处输入图片地址，单击\"确定\"按钮后就设置好商品分类图片了。（单选，1分）\nA. 内部图片地址\nB. 类目名称\nC. 分类名称\nD. 类目搜索"
+    },
+    {
+      "number": 33,
+      "parser_id": "q_33",
+      "question": "图片轮播必须要两张或两张以上的图片才能展示轮播效果，最多可以轮播____张图片。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "5",
+        "B": "6",
+        "C": "8",
+        "D": "10"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q33. 图片轮播必须要两张或两张以上的图片才能展示轮播效果，最多可以轮播____张图片。（单选，1分）\nA. 5\nB. 6\nC. 8\nD. 10"
+    },
+    {
+      "number": 34,
+      "parser_id": "q_34",
+      "question": "对于生产方法不会提升商品的价值和特性的商品，不适用于按照生产方法进行分类。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q34. 对于生产方法不会提升商品的价值和特性的商品，不适用于按照生产方法进行分类。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 35,
+      "parser_id": "q_35",
+      "question": "当遇到消费者在订单备注中要求与其另一订单寄往同一地址时，商家就可以对订单进行合并处理。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q35. 当遇到消费者在订单备注中要求与其另一订单寄往同一地址时，商家就可以对订单进行合并处理。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 36,
+      "parser_id": "q_36",
+      "question": "修改商品信息时，如果在“一口价”下选择了多种规格，则不同规格的价格可以不同。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q36. 修改商品信息时，如果在“一口价”下选择了多种规格，则不同规格的价格可以不同。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 37,
+      "parser_id": "q_37",
+      "question": "商品描述中，商品的外观、规格、形状等方面的介绍属于(    )       类内容。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商品视频",
+        "B": "商品文案描述",
+        "C": "商品外观介绍",
+        "D": "商家实力展示"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q37. 商品描述中，商品的外观、规格、形状等方面的介绍属于(    )       类内容。(    )（单选，1分）\nA. 商品视频\nB. 商品文案描述\nC. 商品外观介绍\nD. 商家实力展示"
+    },
+    {
+      "number": 38,
+      "parser_id": "q_38",
+      "question": "商品描述中使用序号排列特点或功能主要是为了节省页面空间。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q38. 商品描述中使用序号排列特点或功能主要是为了节省页面空间。(    )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 39,
+      "parser_id": "q_39",
+      "question": "单击\"发货\"后，大多数商家会选择\"在线下单\"，选择相应的推荐物流单击\"选择\"，至此商家完成了发货操作。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q39. 单击\"发货\"后，大多数商家会选择\"在线下单\"，选择相应的推荐物流单击\"选择\"，至此商家完成了发货操作。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 40,
+      "parser_id": "q_40",
+      "question": "商品标题中，热搜词的获取途径是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "通过社交媒体查看",
+        "B": "通过消费者调查获取",
+        "C": "通过生意参谋工具查看",
+        "D": "通过广告商提供"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q40. 商品标题中，热搜词的获取途径是( )（单选，1分）\nA. 通过社交媒体查看\nB. 通过消费者调查获取\nC. 通过生意参谋工具查看\nD. 通过广告商提供"
+    },
+    {
+      "number": 41,
+      "parser_id": "q_41",
+      "question": "商品重要属性是所有类目商品都必须填写的属性。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q41. 商品重要属性是所有类目商品都必须填写的属性。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 42,
+      "parser_id": "q_42",
+      "question": "多个订单的账号、收货地址、收货人相同时，需要对订单进行____。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "合并",
+        "B": "拆分",
+        "C": "驳回",
+        "D": "取消"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q42. 多个订单的账号、收货地址、收货人相同时，需要对订单进行____。（单选，1分）\nA. 合并\nB. 拆分\nC. 驳回\nD. 取消"
+    },
+    {
+      "number": 43,
+      "parser_id": "q_43",
+      "question": "商品描述时，下列不属于可以展示的内容的是(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商品外观",
+        "B": "商家隐私信息",
+        "C": "商品功效",
+        "D": "商品使用禁忌"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q43. 商品描述时，下列不属于可以展示的内容的是(    )（单选，1分）\nA. 商品外观\nB. 商家隐私信息\nC. 商品功效\nD. 商品使用禁忌"
+    },
+    {
+      "number": 44,
+      "parser_id": "q_44",
+      "question": "标题无违禁词的意思是标题中不能出现其他品牌的品牌词。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q44. 标题无违禁词的意思是标题中不能出现其他品牌的品牌词。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 45,
+      "parser_id": "q_45",
+      "question": "商品主图的第三、四张图可以体现商品的属性信息或者展现细节。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q45. 商品主图的第三、四张图可以体现商品的属性信息或者展现细节。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 46,
+      "parser_id": "q_46",
+      "question": "上传商品主图时，可以选择不上传白底图。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q46. 上传商品主图时，可以选择不上传白底图。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 47,
+      "parser_id": "q_47",
+      "question": "货物配送过程中出现延迟现象，不可采取延长收货时间措施。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q47. 货物配送过程中出现延迟现象，不可采取延长收货时间措施。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 48,
+      "parser_id": "q_48",
+      "question": "对所售商品进行库存数量的核对，既能按照消费者要求发出商品，也能更好地进行库存管理。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q48. 对所售商品进行库存数量的核对，既能按照消费者要求发出商品，也能更好地进行库存管理。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 49,
+      "parser_id": "q_49",
+      "question": "通常包含店铺名称、店铺标志、店铺标语等内容的是以____为主的店招。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "品牌宣传",
+        "B": "活动促销",
+        "C": "商品推广",
+        "D": "搜索"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q49. 通常包含店铺名称、店铺标志、店铺标语等内容的是以____为主的店招。（单选，1分）\nA. 品牌宣传\nB. 活动促销\nC. 商品推广\nD. 搜索"
+    },
+    {
+      "number": 50,
+      "parser_id": "q_50",
+      "question": "完成一张轮播图片等地址设置后，可以单击\"____\"按钮依次设置剩余展示的轮播图片。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "增加",
+        "B": "加入",
+        "C": "添加",
+        "D": "减少"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q50. 完成一张轮播图片等地址设置后，可以单击\"____\"按钮依次设置剩余展示的轮播图片。（单选，1分）\nA. 增加\nB. 加入\nC. 添加\nD. 减少"
+    },
+    {
+      "number": 51,
+      "parser_id": "q_51",
+      "question": "商品详情页自动提供放大镜功能的图片尺寸要求是800像素x800像素及以上。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q51. 商品详情页自动提供放大镜功能的图片尺寸要求是800像素x800像素及以上。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 52,
+      "parser_id": "q_52",
+      "question": "下列属于商品标题“2无”原则的内容的是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "标题无重复词",
+        "B": "标题无同义词",
+        "C": "标题无热搜词",
+        "D": "标题无负面评价"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q52. 下列属于商品标题“2无”原则的内容的是( )（单选，1分）\nA. 标题无重复词\nB. 标题无同义词\nC. 标题无热搜词\nD. 标题无负面评价"
+    },
+    {
+      "number": 53,
+      "parser_id": "q_53",
+      "question": "商品描述中，展示以往好评的目的是(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "误导消费者",
+        "B": "增加消费者购买信心",
+        "C": "贬低竞争对手",
+        "D": "提高商品价格"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q53. 商品描述中，展示以往好评的目的是(    )（单选，1分）\nA. 误导消费者\nB. 增加消费者购买信心\nC. 贬低竞争对手\nD. 提高商品价格"
+    },
+    {
+      "number": 54,
+      "parser_id": "q_54",
+      "question": "商品白底图可以包含商品的品牌名称或标志。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q54. 商品白底图可以包含商品的品牌名称或标志。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 55,
+      "parser_id": "q_55",
+      "question": "根据消费者的日常行为数据以及商品本身的行业特点，在商品所在类目属性中圈定的数据效果较优的几个属性是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商品其他属性",
+        "B": "商品基础属性",
+        "C": "商品重要属性",
+        "D": "商品附加属性"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q55. 根据消费者的日常行为数据以及商品本身的行业特点，在商品所在类目属性中圈定的数据效果较优的几个属性是( )（单选，1分）\nA. 商品其他属性\nB. 商品基础属性\nC. 商品重要属性\nD. 商品附加属性"
+    },
+    {
+      "number": 56,
+      "parser_id": "q_56",
+      "question": "在白底图规范中，商品主体必须满足的条件是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "允许出现模特",
+        "B": "商品主体不完整",
+        "C": "商品主体可识别",
+        "D": "允许出现文字标志"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q56. 在白底图规范中，商品主体必须满足的条件是( )（单选，1分）\nA. 允许出现模特\nB. 商品主体不完整\nC. 商品主体可识别\nD. 允许出现文字标志"
+    },
+    {
+      "number": 57,
+      "parser_id": "q_57",
+      "question": "____布局方式减少了文案的占用面积，用更多的篇幅展示商品，相对来说，更适合用于促销活动海报。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "两栏结构",
+        "B": "上下结构",
+        "C": "三栏结构",
+        "D": "组合结构"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q57. ____布局方式减少了文案的占用面积，用更多的篇幅展示商品，相对来说，更适合用于促销活动海报。（单选，1分）\nA. 两栏结构\nB. 上下结构\nC. 三栏结构\nD. 组合结构"
+    },
+    {
+      "number": 58,
+      "parser_id": "q_58",
+      "question": "消费者的商品来自不同的仓库时，商家要对订单进行____。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "拆分",
+        "B": "驳回",
+        "C": "合并",
+        "D": "不处理"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q58. 消费者的商品来自不同的仓库时，商家要对订单进行____。（单选，1分）\nA. 拆分\nB. 驳回\nC. 合并\nD. 不处理"
+    },
+    {
+      "number": 59,
+      "parser_id": "q_59",
+      "question": "在商品描述中，只需要展示商品的优点，不需要展示商品的缺点或使用禁忌。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q59. 在商品描述中，只需要展示商品的优点，不需要展示商品的缺点或使用禁忌。(    )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 60,
+      "parser_id": "q_60",
+      "question": "商品详情页自动提供放大镜功能的图片尺寸要求是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "400像素x400像素及以上",
+        "B": "500像素x500像素及以上",
+        "C": "600像素x600像素及以上",
+        "D": "700像素x700像素及以上"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q60. 商品详情页自动提供放大镜功能的图片尺寸要求是( )（单选，1分）\nA. 400像素x400像素及以上\nB. 500像素x500像素及以上\nC. 600像素x600像素及以上\nD. 700像素x700像素及以上"
+    },
+    {
+      "number": 61,
+      "parser_id": "q_61",
+      "question": "商品标题中可以多次出现同一个词以增加权重。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q61. 商品标题中可以多次出现同一个词以增加权重。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 62,
+      "parser_id": "q_62",
+      "question": "在商品描述的优化技巧中，使用序号排列特点或功能主要是为了(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "节省空间",
+        "B": "提高价格",
+        "C": "有利记忆和传播",
+        "D": "增加广告效果"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q62. 在商品描述的优化技巧中，使用序号排列特点或功能主要是为了(    )（单选，1分）\nA. 节省空间\nB. 提高价格\nC. 有利记忆和传播\nD. 增加广告效果"
+    },
+    {
+      "number": 63,
+      "parser_id": "q_63",
+      "question": "实体店店招的主要作用是招徕顾客，而网店的店招主要是留客。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q63. 实体店店招的主要作用是招徕顾客，而网店的店招主要是留客。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 64,
+      "parser_id": "q_64",
+      "question": "铝制品可以分为洗白、抛光、喷漆、氧化等铝制品，这属于按____进行分类。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "用途",
+        "B": "原材料",
+        "C": "主要成分",
+        "D": "生产方法"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q64. 铝制品可以分为洗白、抛光、喷漆、氧化等铝制品，这属于按____进行分类。（单选，1分）\nA. 用途\nB. 原材料\nC. 主要成分\nD. 生产方法"
+    },
+    {
+      "number": 65,
+      "parser_id": "q_65",
+      "question": "店铺装修中的商品分类，与发布商品时选择的类目并不一定直接对应。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q65. 店铺装修中的商品分类，与发布商品时选择的类目并不一定直接对应。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 66,
+      "parser_id": "q_66",
+      "question": "商家批量导出订单后，无须对消费者的订单进行审核。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q66. 商家批量导出订单后，无须对消费者的订单进行审核。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 67,
+      "parser_id": "q_67",
+      "question": "商品主图的作用不包括( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "提高点击率",
+        "B": "展示商品核心卖点",
+        "C": "展示商品使用效果",
+        "D": "突出商品细节"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q67. 商品主图的作用不包括( )（单选，1分）\nA. 提高点击率\nB. 展示商品核心卖点\nC. 展示商品使用效果\nD. 突出商品细节"
+    },
+    {
+      "number": 68,
+      "parser_id": "q_68",
+      "question": "商品描述时，精美图片和广告画面可以增加页面的美化效果，吸引消费者。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q68. 商品描述时，精美图片和广告画面可以增加页面的美化效果，吸引消费者。(    )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 69,
+      "parser_id": "q_69",
+      "question": "商品描述中可以展示商家的个人隐私信息以增加消费者信任。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q69. 商品描述中可以展示商家的个人隐私信息以增加消费者信任。(    )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 70,
+      "parser_id": "q_70",
+      "question": "上传商品主图时，图片的大小不能超过( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "1 MB",
+        "B": "2 MB",
+        "C": "3 MB",
+        "D": "4 MB"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q70. 上传商品主图时，图片的大小不能超过( )（单选，1分）\nA. 1 MB\nB. 2 MB\nC. 3 MB\nD. 4 MB"
+    },
+    {
+      "number": 71,
+      "parser_id": "q_71",
+      "question": "对于一些需要特殊处理的订单可以在审单中做____标识，在一批审单结束后，统一再做处理，这样能提高审单效率。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "特殊",
+        "B": "红色",
+        "C": "备注",
+        "D": "颜色"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q71. 对于一些需要特殊处理的订单可以在审单中做____标识，在一批审单结束后，统一再做处理，这样能提高审单效率。（单选，1分）\nA. 特殊\nB. 红色\nC. 备注\nD. 颜色"
+    },
+    {
+      "number": 72,
+      "parser_id": "q_72",
+      "question": "导购标题和商品标题冲突，两者不能同时存在。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q72. 导购标题和商品标题冲突，两者不能同时存在。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 73,
+      "parser_id": "q_73",
+      "question": "商品分类只能以文字形式展示在店铺中。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q73. 商品分类只能以文字形式展示在店铺中。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 74,
+      "parser_id": "q_74",
+      "question": "商品描述中的对比手法只能用于展示商品价格对比信息。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q74. 商品描述中的对比手法只能用于展示商品价格对比信息。(    )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 75,
+      "parser_id": "q_75",
+      "question": "商品标题关键词匹配中，不需要匹配的是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "匹配消费者搜索习惯",
+        "B": "匹配商品所在类目",
+        "C": "匹配店铺的装修风格",
+        "D": "匹配商品发布时填写的属性"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q75. 商品标题关键词匹配中，不需要匹配的是( )（单选，1分）\nA. 匹配消费者搜索习惯\nB. 匹配商品所在类目\nC. 匹配店铺的装修风格\nD. 匹配商品发布时填写的属性"
+    },
+    {
+      "number": 76,
+      "parser_id": "q_76",
+      "question": "商品描述只包括文字描述，不包括图片和视频。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q76. 商品描述只包括文字描述，不包括图片和视频。(    )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 77,
+      "parser_id": "q_77",
+      "question": "通过查看____，了解顾客在发货、快递等方面的需求，为顾客提供更好的服务。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "库存",
+        "B": "备注信息",
+        "C": "物流",
+        "D": "商品货号和数量"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q77. 通过查看____，了解顾客在发货、快递等方面的需求，为顾客提供更好的服务。（单选，1分）\nA. 库存\nB. 备注信息\nC. 物流\nD. 商品货号和数量"
+    },
+    {
+      "number": 78,
+      "parser_id": "q_78",
+      "question": "店招在店铺中处于店铺第一屏中最为醒目的位置，是传达信息的重要阵地。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q78. 店招在店铺中处于店铺第一屏中最为醒目的位置，是传达信息的重要阵地。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 79,
+      "parser_id": "q_79",
+      "question": "同一消费者下单时虽然留了两个收货地址，但经确认实际只发往一个地址，需要进行订单的____。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "合并",
+        "B": "拆分",
+        "C": "驳回",
+        "D": "取消"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q79. 同一消费者下单时虽然留了两个收货地址，但经确认实际只发往一个地址，需要进行订单的____。（单选，1分）\nA. 合并\nB. 拆分\nC. 驳回\nD. 取消"
+    },
+    {
+      "number": 80,
+      "parser_id": "q_80",
+      "question": "导购标题中，下列做法正确的是( )（单选，1分）",
+      "question_type": "multi_choice",
+      "options": {
+        "A": "标题长度为30个汉字",
+        "B": "添加特殊字符",
+        "C": "清晰表达商品重要属性",
+        "D": "添加与商品无关的内容"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q80. 导购标题中，下列做法正确的是( )（单选，1分）\nA. 标题长度为30个汉字\nB. 添加特殊字符\nC. 清晰表达商品重要属性\nD. 添加与商品无关的内容"
+    },
+    {
+      "number": 81,
+      "parser_id": "q_81",
+      "question": "商品标题中只要包含“热搜词”，就一定能提高搜索点击率。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q81. 商品标题中只要包含“热搜词”，就一定能提高搜索点击率。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 82,
+      "parser_id": "q_82",
+      "question": "如果订单信息有误，商家需要及时与____联系并进行修改。确认订单信息无误后，商家需要单击\"发货\"。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "消费者",
+        "B": "售前客服",
+        "C": "物流公司",
+        "D": "售中客服"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q82. 如果订单信息有误，商家需要及时与____联系并进行修改。确认订单信息无误后，商家需要单击\"发货\"。（单选，1分）\nA. 消费者\nB. 售前客服\nC. 物流公司\nD. 售中客服"
+    },
+    {
+      "number": 83,
+      "parser_id": "q_83",
+      "question": "搜索点击率是指( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商品被购买的次数",
+        "B": "商品被收藏的次数",
+        "C": "搜索结果中某一特定结果被点击的次数与该结果被展示的总次数之比",
+        "D": "商品被评价的次数"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q83. 搜索点击率是指( )（单选，1分）\nA. 商品被购买的次数\nB. 商品被收藏的次数\nC. 搜索结果中某一特定结果被点击的次数与该结果被展示的总次数之比\nD. 商品被评价的次数"
+    },
+    {
+      "number": 84,
+      "parser_id": "q_84",
+      "question": "订单审核工作者不严谨，可能会因错误订单影响商家订单处理效率。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q84. 订单审核工作者不严谨，可能会因错误订单影响商家订单处理效率。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 85,
+      "parser_id": "q_85",
+      "question": "____是订单管理流程中至关重要的环节，通过该环节可以保障订单信息的准确性，减少订单的错误率，使后续的打单、配货和出库作业更加顺利。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "订单审核",
+        "B": "订单处理",
+        "C": "订单接收",
+        "D": "订单核对"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q85. ____是订单管理流程中至关重要的环节，通过该环节可以保障订单信息的准确性，减少订单的错误率，使后续的打单、配货和出库作业更加顺利。（单选，1分）\nA. 订单审核\nB. 订单处理\nC. 订单接收\nD. 订单核对"
+    },
+    {
+      "number": 86,
+      "parser_id": "q_86",
+      "question": "家用电器又可分为音响设备、视频设备、制冷空调设备、厨房设备等，这属于按____进行分类。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "原材料",
+        "B": "用途",
+        "C": "生产方法",
+        "D": "主要成分"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q86. 家用电器又可分为音响设备、视频设备、制冷空调设备、厨房设备等，这属于按____进行分类。（单选，1分）\nA. 原材料\nB. 用途\nC. 生产方法\nD. 主要成分"
+    },
+    {
+      "number": 87,
+      "parser_id": "q_87",
+      "question": "商品主图第一张图的主要目的是为了提高商品的销量。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q87. 商品主图第一张图的主要目的是为了提高商品的销量。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 88,
+      "parser_id": "q_88",
+      "question": "商品描述中如果商品有非凡的“特异功能”，最好配合       进行演示。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "精确的文字说明",
+        "B": "前后使用效果对比的图片",
+        "C": "“特异功能”的视频演示",
+        "D": "以上都是"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q88. 商品描述中如果商品有非凡的“特异功能”，最好配合       进行演示。(    )（单选，1分）\nA. 精确的文字说明\nB. 前后使用效果对比的图片\nC. “特异功能”的视频演示\nD. 以上都是"
+    },
+    {
+      "number": 89,
+      "parser_id": "q_89",
+      "question": "在编辑淘宝店铺商品描述时，商家需要分别进行电脑端和手机端的商品描述编辑。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q89. 在编辑淘宝店铺商品描述时，商家需要分别进行电脑端和手机端的商品描述编辑。(    )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 90,
+      "parser_id": "q_90",
+      "question": "商品信息一旦修改，会立即在搜索和店铺中显示更新。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q90. 商品信息一旦修改，会立即在搜索和店铺中显示更新。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 91,
+      "parser_id": "q_91",
+      "question": "通常在店铺招牌内容的\"是否显示店铺名称\"勾选\"显示\"，这样可以在店招中显示出店铺名称，便于顾客记住店铺。（单选，1分）",
+      "question_type": "true_false",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.88,
+      "warnings": [
+        "判断题含选项，请检查题型是否正确"
+      ],
+      "raw_text": "Q91. 通常在店铺招牌内容的\"是否显示店铺名称\"勾选\"显示\"，这样可以在店招中显示出店铺名称，便于顾客记住店铺。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 92,
+      "parser_id": "q_92",
+      "question": "下列不属于导购标题的填写要求的是( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "字数要求10~15个字",
+        "B": "禁止输入特殊字符",
+        "C": "允许添加同义词",
+        "D": "需要添加对商品卖点的描述"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q92. 下列不属于导购标题的填写要求的是( )（单选，1分）\nA. 字数要求10~15个字\nB. 禁止输入特殊字符\nC. 允许添加同义词\nD. 需要添加对商品卖点的描述"
+    },
+    {
+      "number": 93,
+      "parser_id": "q_93",
+      "question": "商品标题中的“热搜词”和“蓝海词”都可以通过生意参谋工具获取。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q93. 商品标题中的“热搜词”和“蓝海词”都可以通过生意参谋工具获取。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 94,
+      "parser_id": "q_94",
+      "question": "商品主图的第五张图必须为白底图。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q94. 商品主图的第五张图必须为白底图。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 95,
+      "parser_id": "q_95",
+      "question": "商品标题是商品的全称，也是消费者在搜索时最直接看到的内容。( )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q95. 商品标题是商品的全称，也是消费者在搜索时最直接看到的内容。( )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 96,
+      "parser_id": "q_96",
+      "question": "商品描述的主要目的是为了让消费者更加了解商品，而不是为了误导消费者。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q96. 商品描述的主要目的是为了让消费者更加了解商品，而不是为了误导消费者。(    )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 97,
+      "parser_id": "q_97",
+      "question": "如果订单信息有误，商家需要及时与消费者联系并进行修改，确认订单信息无误后，商家需要单击\"发货\"。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q97. 如果订单信息有误，商家需要及时与消费者联系并进行修改，确认订单信息无误后，商家需要单击\"发货\"。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 98,
+      "parser_id": "q_98",
+      "question": "下列不属于商品描述的作用的是(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "让消费者更加了解商品",
+        "B": "误导消费者下单",
+        "C": "取得消费者信任和好感",
+        "D": "增加页面的美化效果"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q98. 下列不属于商品描述的作用的是(    )（单选，1分）\nA. 让消费者更加了解商品\nB. 误导消费者下单\nC. 取得消费者信任和好感\nD. 增加页面的美化效果"
+    },
+    {
+      "number": 99,
+      "parser_id": "q_99",
+      "question": "商品描述中展示以往好评是为了增加消费者购买信心。(    )（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q99. 商品描述中展示以往好评是为了增加消费者购买信心。(    )（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 100,
+      "parser_id": "q_100",
+      "question": "____是指在承诺履行基础消费者保障服务的基础上，可根据店铺经营情况自愿选择向消费者提供特定交易约定服务。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "淘宝网消费者保障服务",
+        "B": "淘宝消保",
+        "C": "基础消费者保障服务",
+        "D": "特色交易约定服务"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q100. ____是指在承诺履行基础消费者保障服务的基础上，可根据店铺经营情况自愿选择向消费者提供特定交易约定服务。（单选，1分）\nA. 淘宝网消费者保障服务\nB. 淘宝消保\nC. 基础消费者保障服务\nD. 特色交易约定服务"
+    },
+    {
+      "number": 101,
+      "parser_id": "q_101",
+      "question": "消费者在签收商品之日起七天内,可以对符合完好标准的商品发起七天无理由退货申请。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q101. 消费者在签收商品之日起七天内,可以对符合完好标准的商品发起七天无理由退货申请。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 102,
+      "parser_id": "q_102",
+      "question": "（ ）是商家选择比较多的货源地。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "厂家直接进货",
+        "B": "批发市场进货",
+        "C": "网络平台进货",
+        "D": "外贸尾单进货"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q102. （ ）是商家选择比较多的货源地。（单选，1分）\nA. 厂家直接进货\nB. 批发市场进货\nC. 网络平台进货\nD. 外贸尾单进货"
+    },
+    {
+      "number": 103,
+      "parser_id": "q_103",
+      "question": "（ ）商品属性包括品牌、型号、颜色、尺码、材质、产地、适用人群等。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q103. （ ）商品属性包括品牌、型号、颜色、尺码、材质、产地、适用人群等。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 104,
+      "parser_id": "q_104",
+      "question": "服装类的宝贝按（ ）进行分类的话，可分为棉布服装、裘皮服装、皮革服装、丝绸服装等。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "用途",
+        "B": "原材料",
+        "C": "生成方法",
+        "D": "主要成分"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q104. 服装类的宝贝按（ ）进行分类的话，可分为棉布服装、裘皮服装、皮革服装、丝绸服装等。（单选，1分）\nA. 用途\nB. 原材料\nC. 生成方法\nD. 主要成分"
+    },
+    {
+      "number": 105,
+      "parser_id": "q_105",
+      "question": "商家可以设置指定条件包邮,如满多少件包邮。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q105. 商家可以设置指定条件包邮,如满多少件包邮。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 106,
+      "parser_id": "q_106",
+      "question": "商品主图一般有五张，第（ ）张的主要目的是提高点击率。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "一",
+        "B": "二",
+        "C": "三",
+        "D": "五"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q106. 商品主图一般有五张，第（ ）张的主要目的是提高点击率。（单选，1分）\nA. 一\nB. 二\nC. 三\nD. 五"
+    },
+    {
+      "number": 107,
+      "parser_id": "q_107",
+      "question": "正常的情况下，淘宝店铺通栏规格为宽度（ ）像素，高度为各模块高度。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "750",
+        "B": "850",
+        "C": "950",
+        "D": "1050"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q107. 正常的情况下，淘宝店铺通栏规格为宽度（ ）像素，高度为各模块高度。（单选，1分）\nA. 750\nB. 850\nC. 950\nD. 1050"
+    },
+    {
+      "number": 108,
+      "parser_id": "q_108",
+      "question": "下列商品属于标品的是（ ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "围巾",
+        "B": "农产品",
+        "C": "T恤",
+        "D": "手机"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q108. 下列商品属于标品的是（ ）。（单选，1分）\nA. 围巾\nB. 农产品\nC. T恤\nD. 手机"
+    },
+    {
+      "number": 109,
+      "parser_id": "q_109",
+      "question": "可以免费订阅的淘宝旺铺是哪一种。（ ）（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "智能版",
+        "B": "专业版",
+        "C": "基础版",
+        "D": "都不是"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q109. 可以免费订阅的淘宝旺铺是哪一种。（ ）（单选，1分）\nA. 智能版\nB. 专业版\nC. 基础版\nD. 都不是"
+    },
+    {
+      "number": 110,
+      "parser_id": "q_110",
+      "question": "当上传的图片达到（ ）及以上时，商品详情页会自动提供放大镜功能？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "500像素x500像素",
+        "B": "600像素x600像素",
+        "C": "700像素x700像素",
+        "D": "800像素x800像素"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q110. 当上传的图片达到（ ）及以上时，商品详情页会自动提供放大镜功能？（单选，1分）\nA. 500像素x500像素\nB. 600像素x600像素\nC. 700像素x700像素\nD. 800像素x800像素"
+    },
+    {
+      "number": 111,
+      "parser_id": "q_111",
+      "question": "（ ）活动款商品在选款时，应尽量以较为大众化的基础商品为主。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q111. （ ）活动款商品在选款时，应尽量以较为大众化的基础商品为主。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 112,
+      "parser_id": "q_112",
+      "question": "（ ）商品标题中禁止出现重复词和同义词，以避免冗余和混淆。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q112. （ ）商品标题中禁止出现重复词和同义词，以避免冗余和混淆。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 113,
+      "parser_id": "q_113",
+      "question": "（ ）商品标题中可以多次出现同一个关键词，以增加搜索匹配的机会。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q113. （ ）商品标题中可以多次出现同一个关键词，以增加搜索匹配的机会。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 114,
+      "parser_id": "q_114",
+      "question": "在店铺模板配色方案中，主色可以占据店铺页面的（ ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "70%-90%",
+        "B": "60%-90%",
+        "C": "50%-90%",
+        "D": "50%-80%"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q114. 在店铺模板配色方案中，主色可以占据店铺页面的（ ）。（单选，1分）\nA. 70%-90%\nB. 60%-90%\nC. 50%-90%\nD. 50%-80%"
+    },
+    {
+      "number": 115,
+      "parser_id": "q_115",
+      "question": "运费模板中的运送方式,一般不包括()（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "快递",
+        "B": "EMS",
+        "C": "平邮",
+        "D": "货到付款"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q115. 运费模板中的运送方式,一般不包括()（单选，1分）\nA. 快递\nB. EMS\nC. 平邮\nD. 货到付款"
+    },
+    {
+      "number": 116,
+      "parser_id": "q_116",
+      "question": "在编辑淘宝店铺商品描述时，商家需要分别进行电脑端和手机端的商品描述编辑。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q116. 在编辑淘宝店铺商品描述时，商家需要分别进行电脑端和手机端的商品描述编辑。（单选，1分）\nA. 正确\nB. 错误"
+    },
+    {
+      "number": 117,
+      "parser_id": "q_117",
+      "question": "若商品商家包邮,消费者进行七天无理由退货时,需承担所有邮费。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.88,
+      "warnings": [
+        "可能是多选题，请检查题型"
+      ],
+      "raw_text": "Q117. 若商品商家包邮,消费者进行七天无理由退货时,需承担所有邮费。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 118,
+      "parser_id": "q_118",
+      "question": "个人商家开设的店铺，（ ）可以修改3次店铺名称。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "1个月内",
+        "B": "3个月内",
+        "C": "6个月内",
+        "D": "1年内"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q118. 个人商家开设的店铺，（ ）可以修改3次店铺名称。（单选，1分）\nA. 1个月内\nB. 3个月内\nC. 6个月内\nD. 1年内"
+    },
+    {
+      "number": 119,
+      "parser_id": "q_119",
+      "question": "在设置商品标题时，以下（ ）不是必须考虑的？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "清晰表达商品及重要属性",
+        "B": "尽可能添加商品的所有属性",
+        "C": "提取商品的卖点和优势进行表达",
+        "D": "突出商品的核心点或特殊卖点"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q119. 在设置商品标题时，以下（ ）不是必须考虑的？（单选，1分）\nA. 清晰表达商品及重要属性\nB. 尽可能添加商品的所有属性\nC. 提取商品的卖点和优势进行表达\nD. 突出商品的核心点或特殊卖点"
+    },
+    {
+      "number": 120,
+      "parser_id": "q_120",
+      "question": "淘宝网个人商家准备店铺入驻材料，开店时需要准备好身份证，并且年满（ ）周岁。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "15",
+        "B": "16",
+        "C": "17",
+        "D": "18"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q120. 淘宝网个人商家准备店铺入驻材料，开店时需要准备好身份证，并且年满（ ）周岁。（单选，1分）\nA. 15\nB. 16\nC. 17\nD. 18"
+    },
+    {
+      "number": 121,
+      "parser_id": "q_121",
+      "question": "赠品遗失或破损、发票遗失均不影响商品退货。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q121. 赠品遗失或破损、发票遗失均不影响商品退货。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 122,
+      "parser_id": "q_122",
+      "question": "消费者在签收商品后()天内可发起七天无理由退货申请。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "3",
+        "B": "7",
+        "C": "10",
+        "D": "15"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q122. 消费者在签收商品后()天内可发起七天无理由退货申请。（单选，1分）\nA. 3\nB. 7\nC. 10\nD. 15"
+    },
+    {
+      "number": 123,
+      "parser_id": "q_123",
+      "question": "店铺为了清理库存或大幅提升销量，通常会选择（ ）参与平台活动？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "主推款商品",
+        "B": "引流款商品",
+        "C": "形象款商品",
+        "D": "活动款商品"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q123. 店铺为了清理库存或大幅提升销量，通常会选择（ ）参与平台活动？（单选，1分）\nA. 主推款商品\nB. 引流款商品\nC. 形象款商品\nD. 活动款商品"
+    },
+    {
+      "number": 124,
+      "parser_id": "q_124",
+      "question": "在商品标题优化中，“热搜词”的获取方式主要是通过（ ）工具？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "搜索引擎关键词工具",
+        "B": "生意参谋的市场搜索排行",
+        "C": "竞争对手分析",
+        "D": "社交媒体热门话题"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q124. 在商品标题优化中，“热搜词”的获取方式主要是通过（ ）工具？（单选，1分）\nA. 搜索引擎关键词工具\nB. 生意参谋的市场搜索排行\nC. 竞争对手分析\nD. 社交媒体热门话题"
+    },
+    {
+      "number": 125,
+      "parser_id": "q_125",
+      "question": "（ ）基础编辑适用于需要对上传的图文详情素材进行继续编辑的商家，大小的裁剪、添加热区模块、添加优惠券模块、添加动图模块等。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q125. （ ）基础编辑适用于需要对上传的图文详情素材进行继续编辑的商家，大小的裁剪、添加热区模块、添加优惠券模块、添加动图模块等。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 126,
+      "parser_id": "q_126",
+      "question": "按（ ）分类便于比较商品的性能，有利于客户的对比购买。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "用途",
+        "B": "原材料",
+        "C": "主要成分",
+        "D": "生产方法"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q126. 按（ ）分类便于比较商品的性能，有利于客户的对比购买。（单选，1分）\nA. 用途\nB. 原材料\nC. 主要成分\nD. 生产方法"
+    },
+    {
+      "number": 127,
+      "parser_id": "q_127",
+      "question": "（ ）一口价是商家在商品发布页面填写的最终成交价格。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q127. （ ）一口价是商家在商品发布页面填写的最终成交价格。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 128,
+      "parser_id": "q_128",
+      "question": "（ ）不属于商品描述优化技巧。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商品的排序列表",
+        "B": "商品的评价展示",
+        "C": "商品的优劣对比",
+        "D": "商品的性能演示"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q128. （ ）不属于商品描述优化技巧。（单选，1分）\nA. 商品的排序列表\nB. 商品的评价展示\nC. 商品的优劣对比\nD. 商品的性能演示"
+    },
+    {
+      "number": 129,
+      "parser_id": "q_129",
+      "question": "运费模板只能解决同一消费者购买多件商品的运费合并问题。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q129. 运费模板只能解决同一消费者购买多件商品的运费合并问题。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 130,
+      "parser_id": "q_130",
+      "question": "消费者滥用会员权利进行退货时,所有运费均由商家承担。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.88,
+      "warnings": [
+        "可能是多选题，请检查题型"
+      ],
+      "raw_text": "Q130. 消费者滥用会员权利进行退货时,所有运费均由商家承担。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 131,
+      "parser_id": "q_131",
+      "question": "（ ）在设置商品标题时，可以添加与商品本身描述无关的内容来吸引消费者。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q131. （ ）在设置商品标题时，可以添加与商品本身描述无关的内容来吸引消费者。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 132,
+      "parser_id": "q_132",
+      "question": "确定合适的（ ）对于网上的店铺的成功运营至关重要。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "目标客户群",
+        "B": "商品",
+        "C": "货源渠道",
+        "D": "商品定价"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q132. 确定合适的（ ）对于网上的店铺的成功运营至关重要。（单选，1分）\nA. 目标客户群\nB. 商品\nC. 货源渠道\nD. 商品定价"
+    },
+    {
+      "number": 133,
+      "parser_id": "q_133",
+      "question": "在服装类目下，（ ）通常被视为商品的重要属性？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "颜色",
+        "B": "尺码",
+        "C": "材质",
+        "D": "产地"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q133. 在服装类目下，（ ）通常被视为商品的重要属性？（单选，1分）\nA. 颜色\nB. 尺码\nC. 材质\nD. 产地"
+    },
+    {
+      "number": 134,
+      "parser_id": "q_134",
+      "question": "（ ）分级定价法是将所有商品都按统一价格出售，方便消费者购买。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q134. （ ）分级定价法是将所有商品都按统一价格出售，方便消费者购买。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 135,
+      "parser_id": "q_135",
+      "question": "通过平台搜索同款或同类商品的价格，然后确定自己店铺商品价格的方法是（ ）？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "九九尾数定价法",
+        "B": "分级定价法",
+        "C": "竞争定价法",
+        "D": "比较定价法"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q135. 通过平台搜索同款或同类商品的价格，然后确定自己店铺商品价格的方法是（ ）？（单选，1分）\nA. 九九尾数定价法\nB. 分级定价法\nC. 竞争定价法\nD. 比较定价法"
+    },
+    {
+      "number": 136,
+      "parser_id": "q_136",
+      "question": "（ ）布局方式更具层次感，服饰、鞋包类需要模特展示的商品适合使用此结构。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "上下结构",
+        "B": "组合结构",
+        "C": "三栏结构",
+        "D": "两栏结构"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q136. （ ）布局方式更具层次感，服饰、鞋包类需要模特展示的商品适合使用此结构。（单选，1分）\nA. 上下结构\nB. 组合结构\nC. 三栏结构\nD. 两栏结构"
+    },
+    {
+      "number": 137,
+      "parser_id": "q_137",
+      "question": "增加店铺品牌关键词的主要目的是（ ）？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "提高商品搜索排名",
+        "B": "吸引更多消费者关注",
+        "C": "树立店铺形象，提高知名度",
+        "D": "增加商品评价数量"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q137. 增加店铺品牌关键词的主要目的是（ ）？（单选，1分）\nA. 提高商品搜索排名\nB. 吸引更多消费者关注\nC. 树立店铺形象，提高知名度\nD. 增加商品评价数量"
+    },
+    {
+      "number": 138,
+      "parser_id": "q_138",
+      "question": "下列（ ）属于“蓝海词”的特征？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "搜索人气高，在线商品数高",
+        "B": "搜索人气低，在线商品数低",
+        "C": "搜索人气高，在线商品数低",
+        "D": "搜索人气低，在线商品数高"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q138. 下列（ ）属于“蓝海词”的特征？（单选，1分）\nA. 搜索人气高，在线商品数高\nB. 搜索人气低，在线商品数低\nC. 搜索人气高，在线商品数低\nD. 搜索人气低，在线商品数高"
+    },
+    {
+      "number": 139,
+      "parser_id": "q_139",
+      "question": "（ ）引流款商品的价格可以设置得非常低，以最大程度地吸引消费者。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q139. （ ）引流款商品的价格可以设置得非常低，以最大程度地吸引消费者。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 140,
+      "parser_id": "q_140",
+      "question": "以下（ ）不符合商品重要属性的特点？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "数据效果较优",
+        "B": "消费者关注度较高",
+        "C": "大部分内容为必填属性",
+        "D": "所有类目下内容一致"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q140. 以下（ ）不符合商品重要属性的特点？（单选，1分）\nA. 数据效果较优\nB. 消费者关注度较高\nC. 大部分内容为必填属性\nD. 所有类目下内容一致"
+    },
+    {
+      "number": 141,
+      "parser_id": "q_141",
+      "question": "（ ）是根据消费者按需购买，各得其所的心理，将商品按不同档次、类型分别定价？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "九九尾数定价法",
+        "B": "分级定价法",
+        "C": "竞争定价法",
+        "D": "比较定价法"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q141. （ ）是根据消费者按需购买，各得其所的心理，将商品按不同档次、类型分别定价？（单选，1分）\nA. 九九尾数定价法\nB. 分级定价法\nC. 竞争定价法\nD. 比较定价法"
+    },
+    {
+      "number": 142,
+      "parser_id": "q_142",
+      "question": "编辑模板配色中，在“配色”栏目可以看到（ ）种整体配色方案。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "8",
+        "B": "10",
+        "C": "16",
+        "D": "24"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q142. 编辑模板配色中，在“配色”栏目可以看到（ ）种整体配色方案。（单选，1分）\nA. 8\nB. 10\nC. 16\nD. 24"
+    },
+    {
+      "number": 143,
+      "parser_id": "q_143",
+      "question": "（ ）如果商品标题中的关键词与商品属性不匹配，可能会影响商品的搜索排名和展现位置。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q143. （ ）如果商品标题中的关键词与商品属性不匹配，可能会影响商品的搜索排名和展现位置。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 144,
+      "parser_id": "q_144",
+      "question": "下列关于主流电子商务平台中B2C(企业对消费者)模式的描述，准确的是（ ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "消费者之间通过平台直接进行商品或服务的买卖，如咸鱼",
+        "B": "企业通过平台向其他企业销售商品或服务，如阿里巴巴1688",
+        "C": "企业通过平台直接向消费者销售商品或服务，如天猫商城",
+        "D": "线上提供平台信息，引导消费者到线下实体店进行消费，如大众点评"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q144. 下列关于主流电子商务平台中B2C(企业对消费者)模式的描述，准确的是（ ）。（单选，1分）\nA. 消费者之间通过平台直接进行商品或服务的买卖，如咸鱼\nB. 企业通过平台向其他企业销售商品或服务，如阿里巴巴1688\nC. 企业通过平台直接向消费者销售商品或服务，如天猫商城\nD. 线上提供平台信息，引导消费者到线下实体店进行消费，如大众点评"
+    },
+    {
+      "number": 145,
+      "parser_id": "q_145",
+      "question": "平台对违背发货时效承诺的商家的处理是()（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "给予奖励",
+        "B": "无处罚",
+        "C": "受到平台处罚",
+        "D": "警告但不处罚"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q145. 平台对违背发货时效承诺的商家的处理是()（单选，1分）\nA. 给予奖励\nB. 无处罚\nC. 受到平台处罚\nD. 警告但不处罚"
+    },
+    {
+      "number": 146,
+      "parser_id": "q_146",
+      "question": "宝贝排行可以展示店铺最近（ ）天的宝贝销售量和收藏量排行榜。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "15",
+        "B": "30",
+        "C": "60",
+        "D": "90"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q146. 宝贝排行可以展示店铺最近（ ）天的宝贝销售量和收藏量排行榜。（单选，1分）\nA. 15\nB. 30\nC. 60\nD. 90"
+    },
+    {
+      "number": 147,
+      "parser_id": "q_147",
+      "question": "常见的首页布局形式中，（ ）是指页面上方与下方各有一个通栏的模块，中间部分采用三栏形式，左侧为分类导航或商品推荐，中间为较大的轮播图，右侧为公告或文字链接。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "“T”结构布局",
+        "B": "“口”形布局",
+        "C": "POP布局",
+        "D": "“三”形布局"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q147. 常见的首页布局形式中，（ ）是指页面上方与下方各有一个通栏的模块，中间部分采用三栏形式，左侧为分类导航或商品推荐，中间为较大的轮播图，右侧为公告或文字链接。（单选，1分）\nA. “T”结构布局\nB. “口”形布局\nC. POP布局\nD. “三”形布局"
+    },
+    {
+      "number": 148,
+      "parser_id": "q_148",
+      "question": "（ ）是指店铺内比例不多，针对目标消费人群，具有高品质、高单价特点的商品。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "主推款商品",
+        "B": "引流款商品",
+        "C": "形象款商品",
+        "D": "活动款商品"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q148. （ ）是指店铺内比例不多，针对目标消费人群，具有高品质、高单价特点的商品。（单选，1分）\nA. 主推款商品\nB. 引流款商品\nC. 形象款商品\nD. 活动款商品"
+    },
+    {
+      "number": 149,
+      "parser_id": "q_149",
+      "question": "淘宝商品主图一般要求上传（ ）张？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "1张",
+        "B": "3张",
+        "C": "5张",
+        "D": "随意数量"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q149. 淘宝商品主图一般要求上传（ ）张？（单选，1分）\nA. 1张\nB. 3张\nC. 5张\nD. 随意数量"
+    },
+    {
+      "number": 150,
+      "parser_id": "q_150",
+      "question": "（ ）商品主图的大小可以超过3MB。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q150. （ ）商品主图的大小可以超过3MB。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 151,
+      "parser_id": "q_151",
+      "question": "百度指数中（ ）能够洞察消费者的兴趣爱好和潜在需求。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "趋势研究",
+        "B": "需求图谱",
+        "C": "舆情信息",
+        "D": "人群画像"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q151. 百度指数中（ ）能够洞察消费者的兴趣爱好和潜在需求。（单选，1分）\nA. 趋势研究\nB. 需求图谱\nC. 舆情信息\nD. 人群画像"
+    },
+    {
+      "number": 152,
+      "parser_id": "q_152",
+      "question": "图片轮播必须要两张以上的图片才能展示轮播效果，最多可以轮播（ ）张图片。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "5",
+        "B": "4",
+        "C": "3",
+        "D": "2"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q152. 图片轮播必须要两张以上的图片才能展示轮播效果，最多可以轮播（ ）张图片。（单选，1分）\nA. 5\nB. 4\nC. 3\nD. 2"
+    },
+    {
+      "number": 153,
+      "parser_id": "q_153",
+      "question": "（ ）采用比较定价法的商品，其价格可以与同款商品相差很大，以突出自己的价格优势。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q153. （ ）采用比较定价法的商品，其价格可以与同款商品相差很大，以突出自己的价格优势。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 154,
+      "parser_id": "q_154",
+      "question": "（ ）形式的缺点是略显呆板，如果不注意细节色彩，很容易让人感觉“乏味”。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "“口”型布局",
+        "B": "对称对比布局",
+        "C": "POP布局",
+        "D": "“T”结构布局"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q154. （ ）形式的缺点是略显呆板，如果不注意细节色彩，很容易让人感觉“乏味”。（单选，1分）\nA. “口”型布局\nB. 对称对比布局\nC. POP布局\nD. “T”结构布局"
+    },
+    {
+      "number": 155,
+      "parser_id": "q_155",
+      "question": "图片轮播的模块高度设置的范围为（ ）像素，多张图片高度要统一。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "120~400",
+        "B": "100~800",
+        "C": "100~600",
+        "D": "450~750"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q155. 图片轮播的模块高度设置的范围为（ ）像素，多张图片高度要统一。（单选，1分）\nA. 120~400\nB. 100~800\nC. 100~600\nD. 450~750"
+    },
+    {
+      "number": 156,
+      "parser_id": "q_156",
+      "question": "商家在日常经营中，通过促销折扣工具设置的价格被称为（ ）？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "一口价",
+        "B": "淘宝价/促销价",
+        "C": "活动价",
+        "D": "价格承诺"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q156. 商家在日常经营中，通过促销折扣工具设置的价格被称为（ ）？（单选，1分）\nA. 一口价\nB. 淘宝价/促销价\nC. 活动价\nD. 价格承诺"
+    },
+    {
+      "number": 157,
+      "parser_id": "q_157",
+      "question": "店铺页面布局设计中用得最广泛的一种布局方式是（ ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "“T”结构布局",
+        "B": "“口”形布局",
+        "C": "“三”形布局",
+        "D": "对称对比布局"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q157. 店铺页面布局设计中用得最广泛的一种布局方式是（ ）。（单选，1分）\nA. “T”结构布局\nB. “口”形布局\nC. “三”形布局\nD. 对称对比布局"
+    },
+    {
+      "number": 158,
+      "parser_id": "q_158",
+      "question": "导购标题的最大容量是商品标题最大容量的（ ）？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "二分之一",
+        "B": "三分之一",
+        "C": "四分之一",
+        "D": "五分之一"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q158. 导购标题的最大容量是商品标题最大容量的（ ）？（单选，1分）\nA. 二分之一\nB. 三分之一\nC. 四分之一\nD. 五分之一"
+    },
+    {
+      "number": 159,
+      "parser_id": "q_159",
+      "question": "页头背景图片文件大小不能超过（ ），页面背景文件大小不能够超过（ ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "120KB;150KB",
+        "B": "150KB;200KB",
+        "C": "200KB;1MB",
+        "D": "150KB;1MB"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q159. 页头背景图片文件大小不能超过（ ），页面背景文件大小不能够超过（ ）。（单选，1分）\nA. 120KB;150KB\nB. 150KB;200KB\nC. 200KB;1MB\nD. 150KB;1MB"
+    },
+    {
+      "number": 160,
+      "parser_id": "q_160",
+      "question": "评价关键词通常包含（ ）类型的词汇？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "负面、贬义的形容词",
+        "B": "中性、无情感的词汇",
+        "C": "正面、褒义的形容词",
+        "D": "与商品无关的词汇"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q160. 评价关键词通常包含（ ）类型的词汇？（单选，1分）\nA. 负面、贬义的形容词\nB. 中性、无情感的词汇\nC. 正面、褒义的形容词\nD. 与商品无关的词汇"
+    },
+    {
+      "number": 161,
+      "parser_id": "q_161",
+      "question": "店铺商品标题由多个关键词组成，其最大容量是（ ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "15个汉字(30个字符)",
+        "B": "20个汉字(40个字符)",
+        "C": "25个汉字(50个字符)",
+        "D": "30个汉字(60个字符)"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q161. 店铺商品标题由多个关键词组成，其最大容量是（ ）。（单选，1分）\nA. 15个汉字(30个字符)\nB. 20个汉字(40个字符)\nC. 25个汉字(50个字符)\nD. 30个汉字(60个字符)"
+    },
+    {
+      "number": 162,
+      "parser_id": "q_162",
+      "question": "（ ）导购标题最大容量是商品标题最大容量的一半，因此导购标题在设置的时候要更加精炼简短。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q162. （ ）导购标题最大容量是商品标题最大容量的一半，因此导购标题在设置的时候要更加精炼简短。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 163,
+      "parser_id": "q_163",
+      "question": "（ ）价格欺诈是商家在促销活动中常用的营销手段，旨在吸引更多消费者。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q163. （ ）价格欺诈是商家在促销活动中常用的营销手段，旨在吸引更多消费者。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 164,
+      "parser_id": "q_164",
+      "question": "（ ）促销关键词往往容易吸引和打动消费者，因此在商品名称中应尽可能多地使用。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q164. （ ）促销关键词往往容易吸引和打动消费者，因此在商品名称中应尽可能多地使用。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 165,
+      "parser_id": "q_165",
+      "question": "（ ）属性关键词是商品名称或俗称，用于介绍商品的基本情况。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q165. （ ）属性关键词是商品名称或俗称，用于介绍商品的基本情况。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 166,
+      "parser_id": "q_166",
+      "question": "（ ）第一张商品主图应该和其他商家的主图保持一致，以显得整齐划一。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q166. （ ）第一张商品主图应该和其他商家的主图保持一致，以显得整齐划一。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 167,
+      "parser_id": "q_167",
+      "question": "淘宝店招模板默认的尺寸大小是（ ），上传不符合要求的图片将导致显示异常。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "950像素x150像素",
+        "B": "720像素x120像素",
+        "C": "950像素x120像素",
+        "D": "750像素x150像素"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q167. 淘宝店招模板默认的尺寸大小是（ ），上传不符合要求的图片将导致显示异常。（单选，1分）\nA. 950像素x150像素\nB. 720像素x120像素\nC. 950像素x120像素\nD. 750像素x150像素"
+    },
+    {
+      "number": 168,
+      "parser_id": "q_168",
+      "question": "运费模板的计价方式大多数商家都是以重量为主。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q168. 运费模板的计价方式大多数商家都是以重量为主。（单选，1分）\nA. 正确\nB. 错误"
+    },
+    {
+      "number": 169,
+      "parser_id": "q_169",
+      "question": "商品标题的字数一般控制在15个汉字(30个字符)以内。（      ）（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q169. 商品标题的字数一般控制在15个汉字(30个字符)以内。（      ）（单选，1分）\nA. 正确\nB. 错误"
+    },
+    {
+      "number": 170,
+      "parser_id": "q_170",
+      "question": "运费模板可以解决的问题是()（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商品价格差异问题",
+        "B": "运费差异化问题",
+        "C": "库存问题",
+        "D": "物流速度问题"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q170. 运费模板可以解决的问题是()（单选，1分）\nA. 商品价格差异问题\nB. 运费差异化问题\nC. 库存问题\nD. 物流速度问题"
+    },
+    {
+      "number": 171,
+      "parser_id": "q_171",
+      "question": "若商品未包邮,消费者部分退货致使无法满足包邮条件,由()承担所有邮费。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商家",
+        "B": "消费者",
+        "C": "快递公司",
+        "D": "平台"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q171. 若商品未包邮,消费者部分退货致使无法满足包邮条件,由()承担所有邮费。（单选，1分）\nA. 商家\nB. 消费者\nC. 快递公司\nD. 平台"
+    },
+    {
+      "number": 172,
+      "parser_id": "q_172",
+      "question": "（ ）淘宝旺铺新增了切图模块、宽屏装修等功能。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "智能版",
+        "B": "专业版",
+        "C": "基础版",
+        "D": "都不是"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q172. （ ）淘宝旺铺新增了切图模块、宽屏装修等功能。（单选，1分）\nA. 智能版\nB. 专业版\nC. 基础版\nD. 都不是"
+    },
+    {
+      "number": 173,
+      "parser_id": "q_173",
+      "question": "按（ ）分类不仅适合对于宝贝的大类进行划分，同时也可以进一步细分。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "用途",
+        "B": "原材料",
+        "C": "主要成分",
+        "D": "生产方法"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q173. 按（ ）分类不仅适合对于宝贝的大类进行划分，同时也可以进一步细分。（单选，1分）\nA. 用途\nB. 原材料\nC. 主要成分\nD. 生产方法"
+    },
+    {
+      "number": 174,
+      "parser_id": "q_174",
+      "question": "（ ）是指根据市场需求和竞争环境，明确商品的目标消费群体、商品特点以及与竞争对手的差异。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "店铺数据分析",
+        "B": "店铺装修",
+        "C": "店铺定位",
+        "D": "店铺特点"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q174. （ ）是指根据市场需求和竞争环境，明确商品的目标消费群体、商品特点以及与竞争对手的差异。（单选，1分）\nA. 店铺数据分析\nB. 店铺装修\nC. 店铺定位\nD. 店铺特点"
+    },
+    {
+      "number": 175,
+      "parser_id": "q_175",
+      "question": "下列属于B2B电子商务模式的是（ ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "淘宝网",
+        "B": "天猫商城",
+        "C": "阿里巴巴",
+        "D": "美团网"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q175. 下列属于B2B电子商务模式的是（ ）。（单选，1分）\nA. 淘宝网\nB. 天猫商城\nC. 阿里巴巴\nD. 美团网"
+    },
+    {
+      "number": 176,
+      "parser_id": "q_176",
+      "question": "（ ）不通过的商品主图类型有不同的要求，3:4主图要求为:PNG/JPG/JPEG格式，700像素x700像素，小于3MB，上限为5张。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q176. （ ）不通过的商品主图类型有不同的要求，3:4主图要求为:PNG/JPG/JPEG格式，700像素x700像素，小于3MB，上限为5张。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 177,
+      "parser_id": "q_177",
+      "question": "《中华人民共和国电子商务法》于（ ）起正式施行。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "2018年1月1日",
+        "B": "2018年8月31日",
+        "C": "2019年1月1日",
+        "D": "2019年8月31日"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q177. 《中华人民共和国电子商务法》于（ ）起正式施行。（单选，1分）\nA. 2018年1月1日\nB. 2018年8月31日\nC. 2019年1月1日\nD. 2019年8月31日"
+    },
+    {
+      "number": 178,
+      "parser_id": "q_178",
+      "question": "七天无理由退货申请应在签收商品之日起计算的()小时内发出。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "48",
+        "B": "72",
+        "C": "96",
+        "D": "168"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q178. 七天无理由退货申请应在签收商品之日起计算的()小时内发出。（单选，1分）\nA. 48\nB. 72\nC. 96\nD. 168"
+    },
+    {
+      "number": 179,
+      "parser_id": "q_179",
+      "question": "页头背景图片不支持（ ）格式。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "GIF",
+        "B": "JPG",
+        "C": "PNG",
+        "D": "BMP"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q179. 页头背景图片不支持（ ）格式。（单选，1分）\nA. GIF\nB. JPG\nC. PNG\nD. BMP"
+    },
+    {
+      "number": 180,
+      "parser_id": "q_180",
+      "question": "商品描述只包括文字描述，不包括图片和视频。（      ）（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q180. 商品描述只包括文字描述，不包括图片和视频。（      ）（单选，1分）\nA. 正确\nB. 错误"
+    },
+    {
+      "number": 181,
+      "parser_id": "q_181",
+      "question": "消费者退回的商品不符合完好标准,是否可以进行七天无理由退货?()（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "可以",
+        "B": "不可以",
+        "C": "根据商家情况而定",
+        "D": "根据平台规定而定"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q181. 消费者退回的商品不符合完好标准,是否可以进行七天无理由退货?()（单选，1分）\nA. 可以\nB. 不可以\nC. 根据商家情况而定\nD. 根据平台规定而定"
+    },
+    {
+      "number": 182,
+      "parser_id": "q_182",
+      "question": "以下（ ）不属于属性关键词的范畴？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商品类别",
+        "B": "商品规格",
+        "C": "商品品牌",
+        "D": "商品功用"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q182. 以下（ ）不属于属性关键词的范畴？（单选，1分）\nA. 商品类别\nB. 商品规格\nC. 商品品牌\nD. 商品功用"
+    },
+    {
+      "number": 183,
+      "parser_id": "q_183",
+      "question": "塑料产品的（ ）有明显的不同，有聚乙烯塑料、聚苯乙烯塑料、聚氯乙烯塑料等。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "用途",
+        "B": "原材料",
+        "C": "主要成分",
+        "D": "生产方法"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q183. 塑料产品的（ ）有明显的不同，有聚乙烯塑料、聚苯乙烯塑料、聚氯乙烯塑料等。（单选，1分）\nA. 用途\nB. 原材料\nC. 主要成分\nD. 生产方法"
+    },
+    {
+      "number": 184,
+      "parser_id": "q_184",
+      "question": "运费模板的计价方式大多数商家都是以重量为主。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q184. 运费模板的计价方式大多数商家都是以重量为主。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 185,
+      "parser_id": "q_185",
+      "question": "在常见的轮播图片排版布局方式中，（ ）布局方式结构平衡，商品展示与文案并重，容易让消费者产生视觉焦点，界面效果强烈且突出。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "上下结构",
+        "B": "组合结构",
+        "C": "三栏结构",
+        "D": "两栏结构"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q185. 在常见的轮播图片排版布局方式中，（ ）布局方式结构平衡，商品展示与文案并重，容易让消费者产生视觉焦点，界面效果强烈且突出。（单选，1分）\nA. 上下结构\nB. 组合结构\nC. 三栏结构\nD. 两栏结构"
+    },
+    {
+      "number": 186,
+      "parser_id": "q_186",
+      "question": "消费者保障服务包括基础消费者保障服务和特色交易约定服务两部分。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "正确",
+        "B": "错误"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q186. 消费者保障服务包括基础消费者保障服务和特色交易约定服务两部分。（单选，1分）\nA. 正确\nB. 错误"
+    },
+    {
+      "number": 187,
+      "parser_id": "q_187",
+      "question": "（ ）布局的优点是视觉冲击力强，缺点是将两部分有机结合比较困难。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "“T”结构",
+        "B": "“口”型",
+        "C": "POP",
+        "D": "对称对比"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q187. （ ）布局的优点是视觉冲击力强，缺点是将两部分有机结合比较困难。（单选，1分）\nA. “T”结构\nB. “口”型\nC. POP\nD. 对称对比"
+    },
+    {
+      "number": 188,
+      "parser_id": "q_188",
+      "question": "发布商品时,是否每个商品都必须设置运费模板?()（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否",
+        "C": "部分商品需要",
+        "D": "根据商家情况而定"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q188. 发布商品时,是否每个商品都必须设置运费模板?()（单选，1分）\nA. 是\nB. 否\nC. 部分商品需要\nD. 根据商家情况而定"
+    },
+    {
+      "number": 189,
+      "parser_id": "q_189",
+      "question": "上传淘宝店铺标志时，建议上传的图片尺寸至少为（ ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "150像素x150像素",
+        "B": "120像素x120像素",
+        "C": "100像素x100像素",
+        "D": "200像素x200像素"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q189. 上传淘宝店铺标志时，建议上传的图片尺寸至少为（ ）。（单选，1分）\nA. 150像素x150像素\nB. 120像素x120像素\nC. 100像素x100像素\nD. 200像素x200像素"
+    },
+    {
+      "number": 190,
+      "parser_id": "q_190",
+      "question": "（ ）商品的产地属性在所有类目下都被视为商品的重要属性。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q190. （ ）商品的产地属性在所有类目下都被视为商品的重要属性。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 191,
+      "parser_id": "q_191",
+      "question": "店铺首页布局单元宽度不包括（ ）像素的规格。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "150",
+        "B": "190",
+        "C": "750",
+        "D": "950"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q191. 店铺首页布局单元宽度不包括（ ）像素的规格。（单选，1分）\nA. 150\nB. 190\nC. 750\nD. 950"
+    },
+    {
+      "number": 192,
+      "parser_id": "q_192",
+      "question": "运费模板中的发货地为商品所在地。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q192. 运费模板中的发货地为商品所在地。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 193,
+      "parser_id": "q_193",
+      "question": "关于批量设置发货时间的说法错误的是（ ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "平台默认48小时内发货",
+        "B": "商家不可以对商品发货时间进行自定义设置",
+        "C": "如果违背发货时效承诺，将会受到平台处罚",
+        "D": "设置发货时间后，该时效将覆盖所有选中的商品"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q193. 关于批量设置发货时间的说法错误的是（ ）。（单选，1分）\nA. 平台默认48小时内发货\nB. 商家不可以对商品发货时间进行自定义设置\nC. 如果违背发货时效承诺，将会受到平台处罚\nD. 设置发货时间后，该时效将覆盖所有选中的商品"
+    },
+    {
+      "number": 194,
+      "parser_id": "q_194",
+      "question": "（ ）商品的重要属性中，大部分内容都是必填的，以确保商品信息的完整性。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q194. （ ）商品的重要属性中，大部分内容都是必填的，以确保商品信息的完整性。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 195,
+      "parser_id": "q_195",
+      "question": "在商品标题中，以下（ ）是被禁止的？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "使用品牌+型号的方式描述手机",
+        "B": "使用品牌+品类+别称的方式描述口红",
+        "C": "输入特殊字符，如标点",
+        "D": "添加对商品卖点的描述"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q195. 在商品标题中，以下（ ）是被禁止的？（单选，1分）\nA. 使用品牌+型号的方式描述手机\nB. 使用品牌+品类+别称的方式描述口红\nC. 输入特殊字符，如标点\nD. 添加对商品卖点的描述"
+    },
+    {
+      "number": 196,
+      "parser_id": "q_196",
+      "question": "发布商品时,商家可以选择不设置运费模板。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q196. 发布商品时,商家可以选择不设置运费模板。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 197,
+      "parser_id": "q_197",
+      "question": "批量设置发货时间后,该时效将覆盖部分选中的商品。（单选，1分）",
+      "question_type": "single_choice",
+      "options": {
+        "A": "对",
+        "B": "错"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q197. 批量设置发货时间后,该时效将覆盖部分选中的商品。（单选，1分）\nA. 对\nB. 错"
+    },
+    {
+      "number": 198,
+      "parser_id": "q_198",
+      "question": "（ ）活动价是指日常经营场景下，商家在一口价基础上通过促销折扣工具所设置的优惠价格。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q198. （ ）活动价是指日常经营场景下，商家在一口价基础上通过促销折扣工具所设置的优惠价格。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 199,
+      "parser_id": "q_199",
+      "question": "（ ）布局方式结构稳定，而且可以形成一个明确的视觉焦点，比较容易突出主题。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "上下结构",
+        "B": "组合结构",
+        "C": "三栏结构",
+        "D": "两栏结构"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q199. （ ）布局方式结构稳定，而且可以形成一个明确的视觉焦点，比较容易突出主题。（单选，1分）\nA. 上下结构\nB. 组合结构\nC. 三栏结构\nD. 两栏结构"
+    },
+    {
+      "number": 200,
+      "parser_id": "q_200",
+      "question": "（ ）的主要目的是用于增加消费者的心理预期，提升店铺的整体形象？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "主推款商品",
+        "B": "引流款商品",
+        "C": "形象款商品",
+        "D": "搭配款商品"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q200. （ ）的主要目的是用于增加消费者的心理预期，提升店铺的整体形象？（单选，1分）\nA. 主推款商品\nB. 引流款商品\nC. 形象款商品\nD. 搭配款商品"
+    },
+    {
+      "number": 201,
+      "parser_id": "q_201",
+      "question": "上传淘宝店铺标志时，图片大小要求为（ ）以内。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "1MB",
+        "B": "2MB",
+        "C": "3MB",
+        "D": "5MB"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q201. 上传淘宝店铺标志时，图片大小要求为（ ）以内。（单选，1分）\nA. 1MB\nB. 2MB\nC. 3MB\nD. 5MB"
+    },
+    {
+      "number": 202,
+      "parser_id": "q_202",
+      "question": "（ ）搭配款商品主要是通过让消费者产生“花少量的钱买多样商品”的优惠想法，来激发消费欲望。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q202. （ ）搭配款商品主要是通过让消费者产生“花少量的钱买多样商品”的优惠想法，来激发消费欲望。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 203,
+      "parser_id": "q_203",
+      "question": "下面哪个属于百度指数的模块（ ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "需求图谱",
+        "B": "生意参谋",
+        "C": "舆情信息",
+        "D": "用户画像"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q203. 下面哪个属于百度指数的模块（ ）。（单选，1分）\nA. 需求图谱\nB. 生意参谋\nC. 舆情信息\nD. 用户画像"
+    },
+    {
+      "number": 204,
+      "parser_id": "q_204",
+      "question": "同一消费者下单时虽然留了两个收货地址，但经确认实际只发往一个地址，需要进行订单的（     ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "合并",
+        "B": "拆分",
+        "C": "驳回",
+        "D": "取消"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q204. 同一消费者下单时虽然留了两个收货地址，但经确认实际只发往一个地址，需要进行订单的（     ）。（单选，1分）\nA. 合并\nB. 拆分\nC. 驳回\nD. 取消"
+    },
+    {
+      "number": 205,
+      "parser_id": "q_205",
+      "question": "（ ）商品重要属性是根据消费者的日常行为数据和商品本身的行业特点来确定的。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q205. （ ）商品重要属性是根据消费者的日常行为数据和商品本身的行业特点来确定的。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 206,
+      "parser_id": "q_206",
+      "question": "（ ）发布商品时，不管是否是包邮，每一种商品都必须设置运费模板。（单选，1分）",
+      "question_type": "true_false",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.88,
+      "warnings": [
+        "判断题含选项，请检查题型是否正确"
+      ],
+      "raw_text": "Q206. （ ）发布商品时，不管是否是包邮，每一种商品都必须设置运费模板。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 207,
+      "parser_id": "q_207",
+      "question": "茶叶按照（ ）可分为红茶、乌龙茶、黑茶、绿茶。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "用途",
+        "B": "原材料",
+        "C": "生产方法",
+        "D": "主要成分"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q207. 茶叶按照（ ）可分为红茶、乌龙茶、黑茶、绿茶。（单选，1分）\nA. 用途\nB. 原材料\nC. 生产方法\nD. 主要成分"
+    },
+    {
+      "number": 208,
+      "parser_id": "q_208",
+      "question": "确定店铺风格需要考虑多个方面的因素，包括商品类型、（ ）、配色方案等。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "产品定位",
+        "B": "商品定位",
+        "C": "目标消费者偏好",
+        "D": "商品类目"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q208. 确定店铺风格需要考虑多个方面的因素，包括商品类型、（ ）、配色方案等。（单选，1分）\nA. 产品定位\nB. 商品定位\nC. 目标消费者偏好\nD. 商品类目"
+    },
+    {
+      "number": 209,
+      "parser_id": "q_209",
+      "question": "批量设置发货时间后,该时效将覆盖()（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "部分选中商品",
+        "B": "所有选中商品",
+        "C": "未选中商品",
+        "D": "所有商品"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q209. 批量设置发货时间后,该时效将覆盖()（单选，1分）\nA. 部分选中商品\nB. 所有选中商品\nC. 未选中商品\nD. 所有商品"
+    },
+    {
+      "number": 210,
+      "parser_id": "q_210",
+      "question": "（ ）商品标题和导购标题都需要清晰表达商品是什么，并突出其重要属性。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "是",
+        "B": "否"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q210. （ ）商品标题和导购标题都需要清晰表达商品是什么，并突出其重要属性。（单选，1分）\nA. 是\nB. 否"
+    },
+    {
+      "number": 211,
+      "parser_id": "q_211",
+      "question": "外贸尾单货的价格十分低廉，通常为市场价格的（ ），品质做工有保障，是一个较好的进货渠道。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "10%-20%",
+        "B": "20%-30%",
+        "C": "30%-40%",
+        "D": "40%-50%"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q211. 外贸尾单货的价格十分低廉，通常为市场价格的（ ），品质做工有保障，是一个较好的进货渠道。（单选，1分）\nA. 10%-20%\nB. 20%-30%\nC. 30%-40%\nD. 40%-50%"
+    },
+    {
+      "number": 212,
+      "parser_id": "q_212",
+      "question": "第五张商品主图通常是（ ）的图片？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "场景图",
+        "B": "细节图",
+        "C": "白底图",
+        "D": "功能图"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q212. 第五张商品主图通常是（ ）的图片？（单选，1分）\nA. 场景图\nB. 细节图\nC. 白底图\nD. 功能图"
+    },
+    {
+      "number": 213,
+      "parser_id": "q_213",
+      "question": "某网店主营厨房电器类商品，一般来说，店铺装修时应选择（ ）。（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "简约风格",
+        "B": "古典/民族风格",
+        "C": "可爱风格",
+        "D": "潮流时尚风格"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q213. 某网店主营厨房电器类商品，一般来说，店铺装修时应选择（ ）。（单选，1分）\nA. 简约风格\nB. 古典/民族风格\nC. 可爱风格\nD. 潮流时尚风格"
+    },
+    {
+      "number": 214,
+      "parser_id": "q_214",
+      "question": "下列（ ）不属于商家对商品或服务价格所做的具体承诺？（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "商业广告中的价格声明",
+        "B": "商品详情页中的价格描述",
+        "C": "店铺告示中的折扣信息",
+        "D": "消费者的购买记录"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q214. 下列（ ）不属于商家对商品或服务价格所做的具体承诺？（单选，1分）\nA. 商业广告中的价格声明\nB. 商品详情页中的价格描述\nC. 店铺告示中的折扣信息\nD. 消费者的购买记录"
+    },
+    {
+      "number": 215,
+      "parser_id": "q_215",
+      "question": "赠品遗失或破损,对商品退货的影响是()（单选，1分）",
+      "question_type": "fill_blank",
+      "options": {
+        "A": "不能退货",
+        "B": "作折价处理",
+        "C": "商家承担损失",
+        "D": "消费者承担损失"
+      },
+      "confidence": 0.98,
+      "warnings": [],
+      "raw_text": "Q215. 赠品遗失或破损,对商品退货的影响是()（单选，1分）\nA. 不能退货\nB. 作折价处理\nC. 商家承担损失\nD. 消费者承担损失"
+    }
+  ],
+  "results": [
+    {
+      "number": 1,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 2,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 3,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 4,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 5,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 6,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 7,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 8,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 9,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 10,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 11,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 12,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 13,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 14,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 15,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 16,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 17,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 18,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 19,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 20,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 21,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 22,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 23,
+      "status": "invalid",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 24,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 25,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 26,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 27,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 28,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 29,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 30,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 31,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 32,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 33,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 34,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 35,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 36,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 37,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 38,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 39,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 40,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 41,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 42,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 43,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 44,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 45,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 46,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 47,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 48,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 49,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 50,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 51,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 52,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 53,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 54,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 55,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 56,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 57,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 58,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 59,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 60,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 61,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 62,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 63,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 64,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 65,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 66,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 67,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 68,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 69,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 70,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 71,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 72,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 73,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 74,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 75,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 76,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 77,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 78,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 79,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 80,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 81,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 82,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 83,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 84,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 85,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 86,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 87,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 88,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 89,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 90,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 91,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 92,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 93,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 94,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 95,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 96,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 97,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 98,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 99,
+      "status": "invalid",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 100,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 101,
+      "status": "invalid",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 102,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 103,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 104,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 105,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 106,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 107,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 108,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 109,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 110,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 111,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 112,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 113,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 114,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 115,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 116,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 117,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 118,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 119,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 120,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 121,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 122,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 123,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 124,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 125,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 126,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 127,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 128,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 129,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 130,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 131,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 132,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 133,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 134,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 135,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 136,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 137,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 138,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 139,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 140,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 141,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 142,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 143,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 144,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 145,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 146,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 147,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 148,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 149,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 150,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 151,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 152,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 153,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 154,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 155,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 156,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 157,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 158,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 159,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 160,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 161,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 162,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 163,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 164,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 165,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 166,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 167,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 168,
+      "status": "invalid",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 169,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 170,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 171,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 172,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 173,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 174,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 175,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 176,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 177,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 178,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 179,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 180,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 181,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 182,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 183,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 184,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 185,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 186,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 187,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 188,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 189,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 190,
+      "status": "invalid",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 191,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 192,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 193,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 194,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 195,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 196,
+      "status": "invalid",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 197,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 198,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 199,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 200,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 201,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 202,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 203,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 204,
+      "status": "ok",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 205,
+      "status": "invalid",
+      "answer": "C",
+      "raw_answer": "C"
+    },
+    {
+      "number": 206,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 207,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 208,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 209,
+      "status": "ok",
+      "answer": "B",
+      "raw_answer": "B"
+    },
+    {
+      "number": 210,
+      "status": "invalid",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 211,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 212,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 213,
+      "status": "ok",
+      "answer": "D",
+      "raw_answer": "D"
+    },
+    {
+      "number": 214,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    },
+    {
+      "number": 215,
+      "status": "ok",
+      "answer": "A",
+      "raw_answer": "A"
+    }
+  ],
+  "warnings": []
+}
