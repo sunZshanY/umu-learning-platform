@@ -1,8 +1,8 @@
-#  UMU刷题助手
+<h1 align="center">UMU刷题助手</h1>
 
 <div align="center">
 
-<h1> <b>基于AI大模型的智能答题工具 | 支持UMU互动学习平台</b></h1>
+<h2> <b>基于AI大模型的智能答题工具 | 支持UMU互动学习平台</b></h2>
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)](https://fastapi.tiangolo.com/)
