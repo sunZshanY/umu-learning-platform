@@ -33,13 +33,6 @@
 
 ---
 
-## 为什么要开发这个
-
-- 不想写作业，以及这个神人老师还很几把严格，完成不了直接给你开学的时候给你留在教室里刷题以及。。。。。（你们懂得，处分
-- 这个是我的第2个开发项目喵~不想开学喵~!
-  
----
-
 ##  功能特性
 
 - ✅ **AI智能答题** — 支持单选题、多选题、判断题、填空题、简答题
@@ -169,6 +162,7 @@ cd backend && python server.py
 |------|------|------|------|
 | **DeepSeek** | [platform.deepseek.com](https://platform.deepseek.com) | ¥2/百万token | ⭐推荐
 | **Kimi**    |  [platform.kimi.com](https://platform.kimi.com/)     | ¥2.00/百万token | ❤️可以试试
+| **Nvidia**  | [https://build.nvidia.com](https://build.nvidia.com) | Free         |  可以给其他用户试用
 ---
 
 ## 📚 API文档
