@@ -56,7 +56,7 @@
         .tab.on{background:var(--pri);color:#fff}
         .tab:active{transform:scale(.97)}
 
-        /* ── Cards ───────────────────── */
+        /* ── 卡片样式 ───────────────────── */
         .card{background:var(--card);border-radius:var(--r);padding:20px;margin-bottom:14px;border:1px solid var(--border)}
         .card h3{font-size:16px;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 
@@ -69,7 +69,7 @@
         textarea:focus{outline:none;border-color:var(--pri);box-shadow:0 0 0 3px rgba(99,102,241,.15)}
         textarea::placeholder{color:var(--text2);font-size:14px}
 
-        /* ── Buttons ─────────────────── */
+        /* ── 按钮 ─────────────────── */
         .btn{
             display:flex;align-items:center;justify-content:center;gap:8px;
             width:100%;padding:15px;border:none;border-radius:10px;
@@ -166,7 +166,7 @@
 
 <!-- Hero -->
 <div class="hero">
-    <h1>🎯 UMU<span>刷题助手</span></h1>
+    <h1>UMU<span>刷题助手</span></h1>
     <p>粘贴题目 → AI自动答题 → 一键复制答案</p>
     <div class="status-pill" id="statusPill">
         <span class="dot r" id="dot"></span>
@@ -185,9 +185,9 @@
 
     <!-- Tabs -->
     <div class="tabs">
-        <button class="tab on" onclick="switchTab('single')">📝 单题刷题</button>
-        <button class="tab" onclick="switchTab('batch')">⚡ 批量刷题</button>
-        <button class="tab" onclick="switchTab('cli')">💻 命令行</button>
+        <button class="tab on" onclick="switchTab('single')"> 单题刷题</button>
+        <button class="tab" onclick="switchTab('batch')"> 批量刷题</button>
+        <button class="tab" onclick="switchTab('cli')"> 命令行</button>
     </div>
 
     <!-- 单题面板 -->
@@ -196,8 +196,8 @@
             <h3>📝 粘贴题目，获取答案</h3>
             <textarea id="qSingle" placeholder="把UMU上的题目复制粘贴到这里...&#10;&#10;支持 Ctrl+Enter 快捷键提交"></textarea>
             <div class="quick-row">
-                <button class="quick" onclick="$('qSingle').value='';$('qSingle').focus()">🗑 清空</button>
-                <button class="quick" onclick="pasteFromClipboard('qSingle')">📋 粘贴剪贴板</button>
+                <button class="quick" onclick="$('qSingle').value='';$('qSingle').focus()"> 清空</button>
+                <button class="quick" onclick="pasteFromClipboard('qSingle')"> 粘贴剪贴板</button>
             </div>
             <div style="display:flex;gap:10px;align-items:center;margin-top:8px">
                 <span style="font-size:13px;color:var(--text2)">题型：</span>
@@ -210,7 +210,7 @@
                     <option value="short_answer">简答题</option>
                 </select>
             </div>
-            <button class="btn btn-go" id="btnSingle" onclick="doSingle()">🚀 获取答案</button>
+            <button class="btn btn-go" id="btnSingle" onclick="doSingle()"> 获取答案</button>
             <div id="ansSingle"></div>
         </div>
     </div>
@@ -261,7 +261,7 @@
                 <p>3. 答案自动保存到 <code style="background:var(--bg);padding:2px 6px;border-radius:4px">answers_compact.txt</code></p>
                 <p>4. 并发20题，300题约90秒完成</p>
             </div>
-            <button class="btn btn-out" onclick="navigator.clipboard.writeText('python backend/auto_quiz.py questions.txt');t('命令已复制')">📋 复制命令</button>
+            <button class="btn btn-out" onclick="navigator.clipboard.writeText('python backend/auto_quiz.py questions.txt');t('命令已复制')"> 复制命令</button>
         </div>
     </div>
 </div>
@@ -317,7 +317,7 @@ async function cp(btn,text){
     const txt=text.replace(/\\n/g,'\n');
     try{await navigator.clipboard.writeText(txt)}
     catch(e){const d=document.createElement('textarea');d.value=txt;d.style.cssText='position:fixed;left:-9999px';document.body.appendChild(d);d.select();document.execCommand('copy');document.body.removeChild(d)}
-    btn.textContent='已复制!';t('✅ 答案已复制到剪贴板');
+    btn.textContent='已复制!';t(' 答案已复制到剪贴板');
     setTimeout(()=>{btn.textContent=btn.textContent.includes('全部')?'复制全部答案':'复制';},1500);
 }
 
@@ -365,15 +365,15 @@ async function doSingle(){
             <div style="background:rgba(16,185,129,.1);border:2px solid var(--ok);border-radius:12px;padding:16px;margin-top:12px;animation:toastIn .3s ease">
                 <div style="font-size:22px;font-weight:800;color:var(--ok);margin-bottom:4px">${E(r.answer)}</div>
                 <div style="font-size:12px;color:var(--text2);display:flex;justify-content:space-between;align-items:center">
-                    <span>⏱ ${Math.round(ms)}ms | 🎯 置信度${(r.confidence*100)|0}%</span>
-                    <button class="btn btn-copy" onclick="cp(this,'${E(r.answer).replace(/'/g,"\\'")}')">📋 复制答案</button>
+                    <span>⏱ ${Math.round(ms)}ms |  置信度${(r.confidence*100)|0}%</span>
+                    <button class="btn btn-copy" onclick="cp(this,'${E(r.answer).replace(/'/g,"\\'")}')"> 复制答案</button>
                 </div>
             </div>`;
-        t('✅ 答案已生成');
+        t(' 答案已生成');
         // Auto-copy to clipboard
-        try{await navigator.clipboard.writeText(r.answer);t('✅ 答案已自动复制')}catch(e){}
+        try{await navigator.clipboard.writeText(r.answer);t(' 答案已自动复制')}catch(e){}
     }catch(e){
-        $('ansSingle').innerHTML=`<div style="color:var(--err);padding:14px;background:rgba(239,68,68,.1);border-radius:10px;margin-top:12px">❌ ${E(e.message)}<br><button class="btn btn-out" onclick="doSingle()" style="margin-top:8px">🔄 重试</button></div>`;
+        $('ansSingle').innerHTML=`<div style="color:var(--err);padding:14px;background:rgba(239,68,68,.1);border-radius:10px;margin-top:12px"> ${E(e.message)}<br><button class="btn btn-out" onclick="doSingle()" style="margin-top:8px"> 重试</button></div>`;
     }
     S.busy=false;ld(btn,false);
 }
@@ -497,7 +497,7 @@ function finishBatch(total,ms,stopped){
     $('batchSum').innerHTML=`
         <strong>${_okCount}/${_allResults.length||total} 成功</strong>
         <span style="color:var(--text2)">| ${Math.round(ms)}ms | ${_failCount}失败${stopped?' (已停止)':''}</span>
-        <button class="btn btn-copy" style="margin-left:auto" onclick="cp(this,'${txt}')">📋 复制全部答案</button>`;
+        <button class="btn btn-copy" style="margin-left:auto" onclick="cp(this,'${txt}')">  复制全部答案</button>`;
 }
 
 async function doBatch(){
@@ -564,7 +564,7 @@ async function doBatch(){
     const okAnswers=_allResults.filter(r=>r.ok);
     if(okAnswers.length>0){
         const allText=okAnswers.map(r=>'#'+String(r.idx).padStart(3,'0')+'  '+r.answer).join('\n');
-        try{await navigator.clipboard.writeText(allText);t(`✅ ${okAnswers.length}条答案已自动复制到剪贴板`)}catch(e){t(`完成: ${okAnswers.length}/${_allResults.length}`)}
+        try{await navigator.clipboard.writeText(allText);t(` ${okAnswers.length}条答案已自动复制到剪贴板`)}catch(e){t(`完成: ${okAnswers.length}/${_allResults.length}`)}
     }
     S.busy=false;ld(btn,false);
 }
